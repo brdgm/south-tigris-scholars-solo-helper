@@ -10,6 +10,6 @@ describe('services/Cards', () => {
   })
 
   it('getAll', () => {
-    expect(Cards.getAll().length).to.eq(1)
+    expect(Cards.getAll().length).to.eq(6)
   })
 })

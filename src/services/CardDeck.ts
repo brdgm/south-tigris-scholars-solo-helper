@@ -3,9 +3,10 @@ import Card from './Card'
 import Cards from './Cards'
 import { CardDeckPersistence } from '@/store/state'
 import { ref } from 'vue'
+import CardColor from './enum/CardColor'
 
 /**
- * Manages the solo card deck with action cards and advanced reserve cards.
+ * Manages the scheme card deck.
  */
 export default class CardDeck {
 
@@ -29,8 +30,12 @@ export default class CardDeck {
     return this._discard.value
   }
 
-  public get pileEmpty() : boolean {
-    return this._pile.value.length == 0
+  /**
+   * Returns true if the discard has 3 red or 3 blue cards.
+   */
+  public get isRest() : boolean {
+    return this._discard.value.filter(card => card.cardColor === CardColor.RED).length === 3
+        || this._discard.value.filter(card => card.cardColor === CardColor.BLUE).length === 3
   }
 
   /**
@@ -48,9 +53,9 @@ export default class CardDeck {
   }
 
   /**
-   * Reshuffle deck for next round.
+   * Reshuffle deck after resting.
    */
-  public prepareForNextRound() {
+  public shuffle() {
     this._pile.value = shuffle([...this._pile.value, ...this._discard.value])
     this._discard.value = []
   }
