@@ -18,6 +18,12 @@
       "body-of-books": "Body of Books"
     }
   },
+  "difficultyLevel": {
+    "1": "Level 1: Student",
+    "2": "Level 2: Scribe",
+    "3": "Level 3: Teacher",
+    "4": "Level 4: Scholar"
+  },
   "notfound": {
     "title": "Not Found"
   },
