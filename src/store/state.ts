@@ -3,6 +3,7 @@ import { name } from '@/../package.json'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import Expansion from '@/services/enum/Expansion'
 import toggleArrayItem from '@brdgm/brdgm-commons/src/util/array/toggleArrayItem'
+import Player from '@/services/enum/Player'
 
 export const useStateStore = defineStore(`${name}.state`, {
   state: () => {
@@ -13,27 +14,20 @@ export const useStateStore = defineStore(`${name}.state`, {
         difficultyLevel: DifficultyLevel.LEVEL_1,
         expansions: []
       },
-      rounds: []
+      turns: []
     } as State
   },
   actions: {
     resetGame() {
-      this.rounds = []
+      this.turns = []
+      this.setup.initialCardDeck = undefined
     },
     setupToggleExpansion(expansion: Expansion) : void {
       toggleArrayItem(this.setup.expansions, expansion)
     },
-    storeRound(round : Round) : void {
-      this.rounds = this.rounds.filter(item => item.round < round.round)
-      this.rounds.push(round)
-    },
-    storeRoundTurn(roundTurn : RoundTurn) : void {
-      const round = this.rounds.find(item => item.round == roundTurn.round)
-      if (!round) {
-        throw new Error(`Round ${roundTurn.round} not found.`)
-      }
-      round.turns = round.turns.filter(item => (item.turn < roundTurn.turn) || (item.turn == roundTurn.turn && item.turnOrderIndex < roundTurn.turnOrderIndex))
-      round.turns.push(roundTurn)
+    storeTurn(turn : Turn) : void {
+      this.turns = this.turns.filter(item => item.turn < turn.turn)
+      this.turns.push(turn)
     }
   },
   persist: true
@@ -43,28 +37,29 @@ export interface State {
   language: string
   baseFontSize: number
   setup: Setup
-  rounds: Round[]
+  turns: Turn[]
 }
 export interface Setup {
   difficultyLevel: DifficultyLevel
   expansions: Expansion[]
+  initialCardDeck?: CardDeckPersistence
   debugMode?: boolean
 }
 
-export interface Round {
-  round: number
-  turns: RoundTurn[]
-}
-export interface RoundTurn {
-  round: number
+export interface Turn {
   turn: number
-  turnOrderIndex: number
+  player: Player
   botPersistence: BotPersistence
 }
 export interface BotPersistence {
   cardDeck: CardDeckPersistence
+  botResources: BotResources
 }
 export interface CardDeckPersistence {
   pile: number[]
   discard: number[]
+}
+export interface BotResources {
+  resourceTrack: number
+  diceSum: number
 }

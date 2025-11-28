@@ -34,6 +34,7 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useRouter } from 'vue-router'
 import getDifficultyLevelSettings, { DifficultyLevelSettings } from '@/util/getDifficultyLevelSettings'
 import Expansion from '@/services/enum/Expansion'
+import CardDeck from '@/services/CardDeck'
 
 export default defineComponent({
   name: 'SetupBot',
@@ -57,6 +58,8 @@ export default defineComponent({
   },
   methods: {
     startGame() : void {
+      this.state.resetGame()
+      this.state.setup.initialCardDeck = CardDeck.new().toPersistence()
       this.router.push('/turn/1/player')
     }
   }
