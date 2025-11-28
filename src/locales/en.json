@@ -37,11 +37,14 @@
       "noFurtherSetup": "Do not give your opponent any other player components. They do not select a Starting Translator or Resource Card. Instead, all Neutral Translators belong to your opponent, but there is no need to place Influence on them."
     }
   },
+  "sideBar": {
+    "turn": "Turn {turn}"
+  },
   "difficultyLevel": {
-    "1": "Level 1: Student",
-    "2": "Level 2: Scribe",
-    "3": "Level 3: Teacher",
-    "4": "Level 4: Scholar"
+    "1": "Level 1 - Student",
+    "2": "Level 2 - Scribe",
+    "3": "Level 3 - Teacher",
+    "4": "Level 4 - Scholar"
   },
   "language": {
     "chinese": "Chinese",
@@ -63,6 +66,7 @@
     "abortGameConfirm": "Aborting the running game - are you sure?",
     "endGame": "End Game",
     "endGameConfirm": "End this game and return to home screen - are you sure?",
+    "endGameGoToScoringConfirm": "End this game and go to scoring screen?",
     "cancel": "Cancel",
     "backToHome": "Back to Home",
     "back": "Back",

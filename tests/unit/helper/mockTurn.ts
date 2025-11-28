@@ -1,11 +1,11 @@
-import { BotPersistence, RoundTurn } from '@/store/state'
+import { BotPersistence, Turn } from '@/store/state'
 import mockBotPersistence from './mockBotPersistence'
+import Player from '@/services/enum/Player'
 
-export default function mockTurn(params?: MockTurnParams) : RoundTurn {
+export default function mockTurn(params?: MockTurnParams) : Turn {
   return {
-    round: params?.round ?? 1,
     turn: params?.turn ?? 1,
-    turnOrderIndex: params?.turnOrderIndex ?? 0,
+    player: params?.player ?? Player.PLAYER,
     botPersistence: params?.botPersistence ?? mockBotPersistence()
   }
 }
@@ -13,7 +13,6 @@ export default function mockTurn(params?: MockTurnParams) : RoundTurn {
 export interface MockTurnParams {
   round? : number
   turn? : number
-  turnOrderIndex? : number
-  pass?: boolean
+  player?: Player
   botPersistence?: BotPersistence
 }
