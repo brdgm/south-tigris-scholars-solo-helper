@@ -20,13 +20,36 @@
     }
   },
   "setupBot": {
-    "title": "Setup AI"
+    "title": "Setup AI",
+    "instructions": {
+      "intro": "Setup the game for a 2-player game, with the following changes for the AI:",
+      "soloBoard": "Give your opponent the Solo Board instead of a Player Board.",
+      "influenceOrangeGuild": "Place <b>{count} Influence in the Orange Guild</b>.",
+      "influencePurpleGuildScrollCard": "Place <b>{count} Influence on the Scroll Card in the Purple Guild</b>.",
+      "influenceScrollCardNeutralMarker": "Place <b>{count} Influence on the Scroll Card adjacent to the Neutral Marker</b>.",
+      "goldOnLeftMostTranslatorCount": "Place <b>1 Gold on the left-most neutral Translator</b>. | Place <b>1 Gold on each of the 2 left-most neutral Translators</b>.",
+      "startingScrollCard": "They start with a random <b>{language} Scroll Card</b> from the reserve. Place it facedown above the associated language as printed across the top of the Solo Board, without any further effect.",
+      "researchMarkers": "Rather than placing their Research Markers on the Main Board, keep them nearby the Solo Board.",
+      "researchMarkersBodyOfBooks": "Place your opponent’s Research Markers on the Main Board Extension. Each Research Marker should be placed directly below a different Page Card.",
+      "noSchemeCards": "The AI does not need the action cards or scheme cards - the scheme card deck and the \"Dice Sum\" track is managed by this application.",
+      "xpFirstCaliphSpace": "Place only 1 XP on the first Caliph Card space.",
+      "firstPlayerMarker": "Give yourself the First Player Marker. You can play either the Casual or Epic version of the game.",
+      "noFurtherSetup": "Do not give your opponent any other player components. They do not select a Starting Translator or Resource Card. Instead, all Neutral Translators belong to your opponent, but there is no need to place Influence on them."
+    }
   },
   "difficultyLevel": {
     "1": "Level 1: Student",
     "2": "Level 2: Scribe",
     "3": "Level 3: Teacher",
     "4": "Level 4: Scholar"
+  },
+  "language": {
+    "chinese": "Chinese",
+    "sanskrit": "Sanskrit",
+    "greek": "Greek",
+    "hebrew": "Hebrew",
+    "persian": "Persian",
+    "syriac": "Syriac"
   },
   "notfound": {
     "title": "Not Found"
