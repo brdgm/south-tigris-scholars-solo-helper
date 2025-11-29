@@ -11,7 +11,6 @@ export default function mockTurn(params?: MockTurnParams) : Turn {
 }
 
 export interface MockTurnParams {
-  round? : number
   turn? : number
   player?: Player
   botPersistence?: BotPersistence

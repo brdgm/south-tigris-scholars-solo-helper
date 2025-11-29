@@ -51,6 +51,14 @@ export default defineComponent({
   },
   methods: {
     next() {
+      this.state.storeTurn({
+        turn: this.turn,
+        player: this.navigationState.player,
+        botPersistence: {
+          cardDeck: this.navigationState.cardDeck.toPersistence(),
+          botResources: this.navigationState.botResources
+        }
+      })
       this.router.push(`/turn/${this.turn+1}/bot`)
     }
   }
