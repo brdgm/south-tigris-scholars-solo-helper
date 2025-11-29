@@ -1,6 +1,10 @@
 <template>
   <div class="sidebar">
     {{t('sideBar.turn', {turn})}}
+    <p class="mt-2">
+      Resources: {{ navigationState.botResources.resourceTrack }}<br/>
+      Dice Sum: {{ navigationState.botResources.diceSum }}
+    </p>
   </div>
 </template>
 
