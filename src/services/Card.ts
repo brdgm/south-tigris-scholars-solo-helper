@@ -1,9 +1,9 @@
 import Action from './enum/Action'
-import CardColor from './enum/CardColor'
+import SchemeCardColor from './enum/SchemeCardColor'
 
 export default interface Card {
   id: number
-  cardColor: CardColor
+  cardColor: SchemeCardColor
   silverValue: number
   actions: Action[]
 }

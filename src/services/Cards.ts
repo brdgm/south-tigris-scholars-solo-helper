@@ -1,7 +1,7 @@
 import findMandatory from '@brdgm/brdgm-commons/src/util/map/findMandatory'
 import Card from './Card'
 import Action from './enum/Action'
-import CardColor from './enum/CardColor'
+import SchemeCardColor from './enum/SchemeCardColor'
 
 /**
  * Scheme cards
@@ -9,7 +9,7 @@ import CardColor from './enum/CardColor'
 const cards : Card[] = [
   {
     id: 1,
-    cardColor: CardColor.BLUE,
+    cardColor: SchemeCardColor.BLUE,
     silverValue: 0,
     actions: [
       Action.TRANSLATOR_PLACE_GOLD_SILVER_2_IF_7_TRANSLATORS,
@@ -18,7 +18,7 @@ const cards : Card[] = [
   },
   {
     id: 2,
-    cardColor: CardColor.BLUE,
+    cardColor: SchemeCardColor.BLUE,
     silverValue: 1,
     actions: [
       Action.TRANSLATE_IF_5_SCROLLS,
@@ -27,7 +27,7 @@ const cards : Card[] = [
   },
   {
     id: 3,
-    cardColor: CardColor.BLUE,
+    cardColor: SchemeCardColor.BLUE,
     silverValue: 2,
     actions: [
       Action.TRANSLATE_IF_3_SCROLLS,
@@ -36,7 +36,7 @@ const cards : Card[] = [
   },
   {
     id: 4,
-    cardColor: CardColor.RED,
+    cardColor: SchemeCardColor.RED,
     silverValue: 0,
     actions: [
       Action.TRANSLATE_IF_3_SCROLLS,
@@ -45,7 +45,7 @@ const cards : Card[] = [
   },
   {
     id: 5,
-    cardColor: CardColor.RED,
+    cardColor: SchemeCardColor.RED,
     silverValue: 1,
     actions: [
       Action.PLACE_INFLUENCE_TRANSLATOR_PLACE_GOLD_IF_5_TRANSLATORS,
@@ -54,7 +54,7 @@ const cards : Card[] = [
   },
   {
     id: 6,
-    cardColor: CardColor.RED,
+    cardColor: SchemeCardColor.RED,
     silverValue: 2,
     actions: [
       Action.INFLUENCE_CARD_PLACE_INFLUENCE_IF_6_TRANSLATORS,
