@@ -3,7 +3,7 @@ import Card from './Card'
 import Cards from './Cards'
 import { CardDeckPersistence } from '@/store/state'
 import { ref } from 'vue'
-import CardColor from './enum/CardColor'
+import SchemeCardColor from './enum/SchemeCardColor'
 
 /**
  * Manages the scheme card deck.
@@ -34,8 +34,8 @@ export default class CardDeck {
    * Returns true if the discard has 3 red or 3 blue cards.
    */
   public get isRest() : boolean {
-    return this._discard.value.filter(card => card.cardColor === CardColor.RED).length === 3
-        || this._discard.value.filter(card => card.cardColor === CardColor.BLUE).length === 3
+    return this._discard.value.filter(card => card.cardColor === SchemeCardColor.RED).length === 3
+        || this._discard.value.filter(card => card.cardColor === SchemeCardColor.BLUE).length === 3
   }
 
   /**
