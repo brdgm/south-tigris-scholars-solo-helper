@@ -2,9 +2,9 @@ import { BotPersistence, BotResources, State } from '@/store/state'
 import { RouteLocation } from 'vue-router'
 import getIntRouteParam from '@brdgm/brdgm-commons/src/util/router/getIntRouteParam'
 import CardDeck from '@/services/CardDeck'
-import { cloneDeep } from 'lodash'
 import getDifficultyLevelSettings from './getDifficultyLevelSettings'
 import Player from '@/services/enum/Player'
+import BotActions from '@/services/BotActions'
 
 export default class NavigationState {
 
@@ -12,6 +12,7 @@ export default class NavigationState {
   readonly player : Player
   readonly action : number
   readonly cardDeck: CardDeck
+  readonly botActions? : BotActions
   readonly botResources : BotResources
 
   constructor(route: RouteLocation, state: State) {    
@@ -22,10 +23,13 @@ export default class NavigationState {
     const lastTurn = (route.name == 'GameEnd')
     const botPersistence = getBotPersistence(state, this.turn, lastTurn)
     this.cardDeck = CardDeck.fromPersistence(botPersistence.cardDeck)
-    this.botResources = cloneDeep(botPersistence.botResources)
 
     if (this.player == Player.BOT) {
-      this.cardDeck.draw()
+      this.botActions = BotActions.drawCard(this.cardDeck, botPersistence.botResources)
+      this.botResources = this.botActions.newBotResources
+    }
+    else {
+      this.botResources = botPersistence.botResources
     }
   }
 

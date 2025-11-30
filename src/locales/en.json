@@ -37,6 +37,10 @@
       "noFurtherSetup": "Do not give your opponent any other player components. They do not select a Starting Translator or Resource Card. Instead, all Neutral Translators belong to your opponent, but there is no need to place Influence on them."
     }
   },
+  "turnPlayer": {
+    "execute": "Execute you turn.",
+    "playerPaySilver": "Silver/Provisions you paid to the AI:"
+  },
   "sideBar": {
     "turn": "Turn {turn}"
   },

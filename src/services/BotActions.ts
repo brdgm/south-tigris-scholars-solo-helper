@@ -29,13 +29,10 @@ export default class BotActions {
     let newResourceTrack = oldResourceTrack + advanceSteps
 
     // benefits from resource track and drawn card
-    let benefit : Benefit|undefined = undefined
     let resourceTrackBenefitsClaimed = botResources.resourceTrackBenefitsClaimed
-    if (oldResourceTrack < 6 && newResourceTrack >= 6) {
-      benefit = getResourceTrackBenefit(resourceTrackBenefitsClaimed)
-      if (benefit) {
-        resourceTrackBenefitsClaimed++
-      }
+    const benefit = getResourceTrackBenefit(oldResourceTrack, newResourceTrack, resourceTrackBenefitsClaimed)
+    if (benefit) {
+      resourceTrackBenefitsClaimed++
     }
     
     if (newResourceTrack > 5) {

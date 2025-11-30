@@ -4,6 +4,12 @@
 
   <p>...</p>
 
+  <PlayerPaySilver v-model="playerPaySilver"/>
+
+  <div v-if="additionalResourceTrackBenefit" class="mt-3">
+    [{{additionalResourceTrackBenefit}}]
+  </div>
+
   <button class="btn btn-success btn-lg mt-4 me-2" @click="next()">
     {{t('roundTurnBot.executed')}}
   </button>
@@ -26,13 +32,18 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useStateStore } from '@/store/state'
 import SideBar from '@/components/turn/SideBar.vue'
 import DebugInfo from '@/components/turn/DebugInfo.vue'
+import PlayerPaySilver from '@/components/turn/PlayerPaySilver.vue'
+import Benefit from '@/services/enum/Benefit'
+import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
+import addResourceTrack from '@/util/addResourceTrack'
 
 export default defineComponent({
   name: 'TurnBot',
   components: {
     FooterButtons,
     SideBar,
-    DebugInfo
+    DebugInfo,
+    PlayerPaySilver
   },
   setup() {
     const { t } = useI18n()
@@ -45,10 +56,21 @@ export default defineComponent({
 
     return { t, router, navigationState, state, turn }
   },
+  data() {
+    return {
+      playerPaySilver: 0
+    }
+  },
   computed: {
     backButtonRouteTo() : string {
       return `/turn/${this.turn-1}/player`
     },
+    additionalResourceTrackBenefit() : Benefit|undefined {
+      const resourceTackOld = this.navigationState.botResources.resourceTrack
+      const resourceTrackNew = resourceTackOld + this.playerPaySilver
+      return getResourceTrackBenefit(resourceTackOld, resourceTrackNew,
+          this.navigationState.botResources.resourceTrackBenefitsClaimed)
+    }
   },
   methods: {
     next() : void {
@@ -57,7 +79,7 @@ export default defineComponent({
         player: this.navigationState.player,
         botPersistence: {
           cardDeck: this.navigationState.cardDeck.toPersistence(),
-          botResources: this.navigationState.botResources
+          botResources: addResourceTrack(this.navigationState.botResources, this.playerPaySilver)
         }
       })
       this.router.push(`/turn/${this.turn+1}/player`)
