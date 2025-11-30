@@ -37,6 +37,7 @@ function getBotPersistence(state: State, turn: number, lastTurn: boolean) : BotP
       cardDeck: state.setup.initialCardDeck ?? CardDeck.new().toPersistence(),
       botResources: {
         resourceTrack: 0,
+        resourceTrackBenefitsClaimed: 0,
         diceSum: getDifficultyLevelSettings(state.setup.difficultyLevel).startingDiceSum
       }
     }

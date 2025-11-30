@@ -61,5 +61,6 @@ export interface CardDeckPersistence {
 }
 export interface BotResources {
   resourceTrack: number
+  resourceTrackBenefitsClaimed: number
   diceSum: number
 }

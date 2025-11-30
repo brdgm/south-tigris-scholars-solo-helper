@@ -2,11 +2,11 @@ import ResourceTrackBenefit from '@/services/enum/ResourceTrackBenefit'
 
 /**
  * Get resource track benefit when wrapping over.
- * @param resourceTrack Resource track position
+ * @param resourceTrackBenefitsClaimed Number of resource track benefits claimed
  * @returns Resource track benefit
  */
-export default function getResourceTrackBenefit(numberOfBenefitsClaimed: number) : ResourceTrackBenefit|undefined {
-  switch (numberOfBenefitsClaimed) {
+export default function getResourceTrackBenefit(resourceTrackBenefitsClaimed: number) : ResourceTrackBenefit|undefined {
+  switch (resourceTrackBenefitsClaimed) {
     case 0:
       return ResourceTrackBenefit.INFLUENCE_PURPLE
     case 1:

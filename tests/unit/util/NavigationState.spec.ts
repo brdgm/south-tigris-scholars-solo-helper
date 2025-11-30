@@ -23,28 +23,28 @@ describe('util/NavigationState', () => {
     const underTest = navigationState('TurnPlayer', {turn:'1'})
     expect(underTest.turn).to.equal(1)
     expect(underTest.cardDeck.currentCard?.id).to.undefined
-    expect(underTest.botResources).to.eql({resourceTrack:0, diceSum:1})
+    expect(underTest.botResources).to.eql({resourceTrack:0, resourceTrackBenefitsClaimed:0, diceSum:1})
   })
 
   it('turn-2', () => {
     const underTest = navigationState('TurnBot', {turn:'2'})
     expect(underTest.turn).to.equal(2)
     expect(underTest.cardDeck.currentCard?.id).to.eq(1)
-    expect(underTest.botResources).to.eql({resourceTrack:0, diceSum:1})
+    expect(underTest.botResources).to.eql({resourceTrack:0, resourceTrackBenefitsClaimed:0, diceSum:1})
   })
 
   it('turn-3', () => {
     const underTest = navigationState('TurnPlayer', {turn:'3'})
     expect(underTest.turn).to.equal(3)
     expect(underTest.cardDeck.currentCard?.id).to.eq(1)
-    expect(underTest.botResources).to.eql({resourceTrack:2, diceSum:1})
+    expect(underTest.botResources).to.eql({resourceTrack:2, resourceTrackBenefitsClaimed:0, diceSum:1})
   })
 
   it('turn-4', () => {
     const underTest = navigationState('TurnBot', {turn:'4'})
     expect(underTest.turn).to.equal(4)
     expect(underTest.cardDeck.currentCard?.id).to.eq(2)
-    expect(underTest.botResources).to.eql({resourceTrack:2, diceSum:1})
+    expect(underTest.botResources).to.eql({resourceTrack:2, resourceTrackBenefitsClaimed:0, diceSum:1})
   })
 })
 
