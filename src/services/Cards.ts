@@ -9,7 +9,7 @@ import SchemeCardColor from './enum/SchemeCardColor'
 const cards : Card[] = [
   {
     id: 1,
-    cardColor: SchemeCardColor.BLUE,
+    color: SchemeCardColor.BLUE,
     silverValue: 0,
     actions: [
       Action.TRANSLATOR_PLACE_GOLD_SILVER_2_IF_7_TRANSLATORS,
@@ -18,7 +18,7 @@ const cards : Card[] = [
   },
   {
     id: 2,
-    cardColor: SchemeCardColor.BLUE,
+    color: SchemeCardColor.BLUE,
     silverValue: 1,
     actions: [
       Action.TRANSLATE_IF_5_SCROLLS,
@@ -27,7 +27,7 @@ const cards : Card[] = [
   },
   {
     id: 3,
-    cardColor: SchemeCardColor.BLUE,
+    color: SchemeCardColor.BLUE,
     silverValue: 2,
     actions: [
       Action.TRANSLATE_IF_3_SCROLLS,
@@ -36,7 +36,7 @@ const cards : Card[] = [
   },
   {
     id: 4,
-    cardColor: SchemeCardColor.RED,
+    color: SchemeCardColor.RED,
     silverValue: 0,
     actions: [
       Action.TRANSLATE_IF_3_SCROLLS,
@@ -45,7 +45,7 @@ const cards : Card[] = [
   },
   {
     id: 5,
-    cardColor: SchemeCardColor.RED,
+    color: SchemeCardColor.RED,
     silverValue: 1,
     actions: [
       Action.PLACE_INFLUENCE_TRANSLATOR_PLACE_GOLD_IF_5_TRANSLATORS,
@@ -54,7 +54,7 @@ const cards : Card[] = [
   },
   {
     id: 6,
-    cardColor: SchemeCardColor.RED,
+    color: SchemeCardColor.RED,
     silverValue: 2,
     actions: [
       Action.INFLUENCE_CARD_PLACE_INFLUENCE_IF_6_TRANSLATORS,

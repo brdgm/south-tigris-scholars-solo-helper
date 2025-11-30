@@ -3,7 +3,7 @@ import SchemeCardColor from './enum/SchemeCardColor'
 
 export default interface Card {
   id: number
-  cardColor: SchemeCardColor
+  color: SchemeCardColor
   silverValue: number
   actions: Action[]
 }
