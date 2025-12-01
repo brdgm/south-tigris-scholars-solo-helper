@@ -2,20 +2,19 @@
   <SideBar :navigationState="navigationState"/>
   <h1>{{t('turnBot.title')}}</h1>
 
-  <p>...</p>
+  <template v-if="botActions">
+    <BotBenefit v-if="botActions.benefit" :benefit="botActions.benefit"/>
+    <BotAction :action="currentAction"/>
+  </template>
 
   <PlayerPaySilver v-model="playerPaySilver"/>
-
-  <div v-if="additionalResourceTrackBenefit" class="mt-3">
-    [{{additionalResourceTrackBenefit}}]
-  </div>
+  <BotBenefit v-if="additionalResourceTrackBenefit" :benefit="additionalResourceTrackBenefit"/>
 
   <button class="btn btn-success btn-lg mt-4 me-2" @click="next()">
-    {{t('roundTurnBot.executed')}}
+    {{t('turnBot.executed')}}
   </button>
-
-  <button class="btn btn-danger btn-lg mt-4 me-2" @click="next()">
-    {{t('roundTurnBot.notPossible')}}
+  <button class="btn btn-danger btn-lg mt-4 me-2" @click="notPossible()" v-if="isChoiceAction">
+    {{t('turnBot.notPossible')}}
   </button>
 
   <DebugInfo :navigationState="navigationState"/>
@@ -36,6 +35,10 @@ import PlayerPaySilver from '@/components/turn/PlayerPaySilver.vue'
 import Benefit from '@/services/enum/Benefit'
 import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
 import addResourceTrack from '@/util/addResourceTrack'
+import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
+import BotBenefit from '@/components/turn/BotBenefit.vue'
+import Action from '@/services/enum/Action'
+import BotAction from '@/components/turn/BotAction.vue'
 
 export default defineComponent({
   name: 'TurnBot',
@@ -43,7 +46,9 @@ export default defineComponent({
     FooterButtons,
     SideBar,
     DebugInfo,
-    PlayerPaySilver
+    PlayerPaySilver,
+    BotBenefit,
+    BotAction
   },
   setup() {
     const { t } = useI18n()
@@ -52,9 +57,9 @@ export default defineComponent({
     const state = useStateStore()
 
     const navigationState = new NavigationState(route, state)
-    const { turn } = navigationState
+    const { turn, action, botActions } = navigationState
 
-    return { t, router, navigationState, state, turn }
+    return { t, router, navigationState, state, turn, action, botActions }
   },
   data() {
     return {
@@ -65,21 +70,31 @@ export default defineComponent({
     backButtonRouteTo() : string {
       return `/turn/${this.turn-1}/player`
     },
+    allActions() : Action[] {
+      return this.botActions?.actions ?? []
+    },
+    currentAction() : Action {
+      return this.allActions[this.action]
+    },
+    isChoiceAction() : boolean {
+      return this.action % 2 == 0
+    },
     additionalResourceTrackBenefit() : Benefit|undefined {
-      const resourceTackOld = this.navigationState.botResources.resourceTrack
-      const resourceTrackNew = resourceTackOld + this.playerPaySilver
-      return getResourceTrackBenefit(resourceTackOld, resourceTrackNew,
+      return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.playerPaySilver),
           this.navigationState.botResources.resourceTrackBenefitsClaimed)
     }
   },
   methods: {
+    notPossible() : void {
+      this.router.push(`/turn/${this.turn}/bot/action/${this.action+1}`)
+    },
     next() : void {
       this.state.storeTurn({
         turn: this.turn,
         player: this.navigationState.player,
         botPersistence: {
           cardDeck: this.navigationState.cardDeck.toPersistence(),
-          botResources: addResourceTrack(this.navigationState.botResources, this.playerPaySilver)
+          botResources: addResourceTrack(this.navigationState.botResources, toNumber(this.playerPaySilver))
         }
       })
       this.router.push(`/turn/${this.turn+1}/player`)

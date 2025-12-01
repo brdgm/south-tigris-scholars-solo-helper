@@ -6,7 +6,7 @@
         <label for="inputSilverValue">
           <AppIcon name="silver" class="icon" extension="webp"/>
         </label>
-        <NumberInput id="inputSilverValue" v-model="silverValue" :min="0" :max="10"/>
+        <NumberInput id="inputSilverValue" v-model="silverValue" :min="0" :max="6"/>
       </div>
     </div>
   </div>

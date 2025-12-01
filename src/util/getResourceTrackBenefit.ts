@@ -2,13 +2,14 @@ import Benefit from '@/services/enum/Benefit'
 
 /**
  * Get resource track benefit when wrapping over.
- * @param oldResourceTrack Old resource track position
- * @param newResourceTrack New resource track position
+ * @param resourceTrack Current resource track position
+ * @param resourceTrackAdd Steps to add to resource track
  * @param resourceTrackBenefitsClaimed Number of resource track benefits claimed
  * @returns Resource track benefit
  */
-export default function getResourceTrackBenefit(oldResourceTrack: number, newResourceTrack:number, resourceTrackBenefitsClaimed: number) : Benefit|undefined {
-  if (oldResourceTrack < 6 && newResourceTrack >= 6) {
+export default function getResourceTrackBenefit(resourceTrack: number, resourceTrackAdd: number, resourceTrackBenefitsClaimed: number) : Benefit|undefined {
+  const newResourceTrack = resourceTrack + resourceTrackAdd
+  if (resourceTrack < 6 && newResourceTrack >= 6) {
     switch (resourceTrackBenefitsClaimed) {
       case 0:
         return Benefit.INFLUENCE_PURPLE

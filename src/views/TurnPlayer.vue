@@ -32,6 +32,7 @@ import PlayerPaySilver from '@/components/turn/PlayerPaySilver.vue'
 import Benefit from '@/services/enum/Benefit'
 import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
 import addResourceTrack from '@/util/addResourceTrack'
+import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
 
 export default defineComponent({
   name: 'TurnPlayer',
@@ -65,9 +66,7 @@ export default defineComponent({
       return `/turn/${this.turn-1}/bot`
     },
     additionalResourceTrackBenefit() : Benefit|undefined {
-      const resourceTackOld = this.navigationState.botResources.resourceTrack
-      const resourceTrackNew = resourceTackOld + this.playerPaySilver
-      return getResourceTrackBenefit(resourceTackOld, resourceTrackNew,
+      return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.playerPaySilver),
           this.navigationState.botResources.resourceTrackBenefitsClaimed)
     }
   },
@@ -78,7 +77,7 @@ export default defineComponent({
         player: this.navigationState.player,
         botPersistence: {
           cardDeck: this.navigationState.cardDeck.toPersistence(),
-          botResources: addResourceTrack(this.navigationState.botResources, this.playerPaySilver)
+          botResources: addResourceTrack(this.navigationState.botResources, toNumber(this.playerPaySilver))
         }
       })
       this.router.push(`/turn/${this.turn+1}/bot`)
