@@ -37,8 +37,8 @@ import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
 import addResourceTrack from '@/util/addResourceTrack'
 import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
 import BotBenefit from '@/components/turn/BotBenefit.vue'
-import Action from '@/services/enum/Action'
 import BotAction from '@/components/turn/BotAction.vue'
+import { CardAction } from '@/services/Card'
 
 export default defineComponent({
   name: 'TurnBot',
@@ -70,10 +70,10 @@ export default defineComponent({
     backButtonRouteTo() : string {
       return `/turn/${this.turn-1}/player`
     },
-    allActions() : Action[] {
+    allActions() : CardAction[] {
       return this.botActions?.actions ?? []
     },
-    currentAction() : Action {
+    currentAction() : CardAction {
       return this.allActions[this.action]
     },
     isChoiceAction() : boolean {

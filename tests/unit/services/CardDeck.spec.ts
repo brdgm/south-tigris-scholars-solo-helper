@@ -40,6 +40,8 @@ describe('services/CardDeck', () => {
     expect(deck.currentCard?.id).to.eq(6)  // red
     expect(deck.isRest).to.eq(true)
     expect(deck.silverValueSum).to.eq(3)
+    expect(deck.discardBlueCount).to.eq(2)
+    expect(deck.discardRedCount).to.eq(3)
   })
 
   it('shuffle', () => {

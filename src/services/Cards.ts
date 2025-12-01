@@ -12,8 +12,8 @@ const cards : Card[] = [
     color: SchemeCardColor.BLUE,
     silverValue: 0,
     actions: [
-      Action.TRANSLATOR_PLACE_GOLD_SILVER_2_IF_7_TRANSLATORS,
-      Action.TRANSLATOR_EMPLOY
+      { action: Action.TRANSLATOR_PLACE_GOLD, requireEmployedTranslators: 7, silverBonus: 2},
+      { action: Action.TRANSLATOR_EMPLOY }
     ]
   },
   {
@@ -21,8 +21,8 @@ const cards : Card[] = [
     color: SchemeCardColor.BLUE,
     silverValue: 1,
     actions: [
-      Action.TRANSLATE_IF_5_SCROLLS,
-      Action.TRAVEL_INFLUENCE_1_2
+      { action: Action.TRANSLATE, requireScrollCardsHouseOfWisdom: 5 },
+      { action: Action.TRAVEL, travelInfluence: [1,2] }
     ]
   },
   {
@@ -30,8 +30,8 @@ const cards : Card[] = [
     color: SchemeCardColor.BLUE,
     silverValue: 2,
     actions: [
-      Action.TRANSLATE_IF_3_SCROLLS,
-      Action.TRAVEL_INFLUENCE_2
+      { action: Action.TRANSLATE, requireScrollCardsHouseOfWisdom: 3 },
+      { action: Action.TRAVEL, travelInfluence: [2] }
     ]
   },
   {
@@ -39,8 +39,8 @@ const cards : Card[] = [
     color: SchemeCardColor.RED,
     silverValue: 0,
     actions: [
-      Action.TRANSLATE_IF_3_SCROLLS,
-      Action.TRAVEL_INFLUENCE_2_SILVER_1
+      { action: Action.TRANSLATE, requireScrollCardsHouseOfWisdom: 3 },
+      { action: Action.TRAVEL, travelInfluence: [2], silverBonus: 1 }
     ]
   },
   {
@@ -48,8 +48,8 @@ const cards : Card[] = [
     color: SchemeCardColor.RED,
     silverValue: 1,
     actions: [
-      Action.PLACE_INFLUENCE_TRANSLATOR_PLACE_GOLD_IF_5_TRANSLATORS,
-      Action.TRANSLATOR_EMPLOY_SILVER_2
+      { action: Action.TRANSLATOR_PLACE_GOLD, requireEmployedTranslators: 5, anyInfluenceBonus: true },
+      { action: Action.TRANSLATOR_EMPLOY, silverBonus: 2 }
     ]
   },
   {
@@ -57,8 +57,8 @@ const cards : Card[] = [
     color: SchemeCardColor.RED,
     silverValue: 2,
     actions: [
-      Action.INFLUENCE_CARD_PLACE_INFLUENCE_IF_6_TRANSLATORS,
-      Action.TRANSLATOR_EMPLOY
+      { action: Action.INFLUENCE_CARD, requireEmployedTranslators: 6, anyInfluenceBonus: true },
+      { action: Action.TRANSLATOR_EMPLOY }
     ]
   },
 ]

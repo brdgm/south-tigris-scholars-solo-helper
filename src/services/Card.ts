@@ -5,5 +5,14 @@ export default interface Card {
   id: number
   color: SchemeCardColor
   silverValue: number
-  actions: Action[]
+  actions: CardAction[]
+}
+
+export interface CardAction {
+  action: Action
+  silverBonus?: number
+  anyInfluenceBonus?: boolean
+  requireEmployedTranslators?: number
+  requireScrollCardsHouseOfWisdom?: number
+  travelInfluence?: number[]
 }

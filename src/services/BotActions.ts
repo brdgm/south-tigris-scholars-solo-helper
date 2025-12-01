@@ -1,19 +1,19 @@
 import { BotResources } from '@/store/state'
 import CardDeck from './CardDeck'
-import Action from './enum/Action'
 import Benefit from './enum/Benefit'
 import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
+import { CardAction } from './Card'
 
 /**
  * Bot actions derived from scheme card deck.
  */
 export default class BotActions {
 
-  public readonly actions : Action[]
+  public readonly actions : CardAction[]
   public readonly benefit? : Benefit
   public readonly newBotResources : BotResources
   
-  private constructor(actions : Action[], benefit: Benefit|undefined, newBotResources : BotResources) {
+  private constructor(actions : CardAction[], benefit: Benefit|undefined, newBotResources : BotResources) {
     this.actions = actions
     this.benefit = benefit
     this.newBotResources = newBotResources
