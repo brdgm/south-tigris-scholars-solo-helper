@@ -15,6 +15,7 @@ describe('services/BotActions', () => {
     ])
     expect(underTest.benefit).to.undefined
     expect(underTest.newBotResources).to.eql({resourceTrack: 0, resourceTrackBenefitsClaimed:0, diceSum: 0})
+    expect(underTest.isRest).to.false
   })
 
   it('card-3', () => {
@@ -27,6 +28,7 @@ describe('services/BotActions', () => {
     ])
     expect(underTest.benefit).to.undefined
     expect(underTest.newBotResources).to.eql({resourceTrack: 4, resourceTrackBenefitsClaimed:0, diceSum: 1})
+    expect(underTest.isRest).to.false
   })
 
   it('card-6-wrap-over', () => {
@@ -39,5 +41,42 @@ describe('services/BotActions', () => {
     ])
     expect(underTest.benefit).to.eq(Benefit.INFLUENCE_ORANGE)
     expect(underTest.newBotResources).to.eql({resourceTrack: 1, resourceTrackBenefitsClaimed:3, diceSum: 1})
+    expect(underTest.isRest).to.false
+  })
+
+  it('rest-3', () => {
+    const deck = CardDeck.fromPersistence({pile: [6], discard: [1,2,3]})
+    const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
+
+    expect(underTest.actions).to.eql([
+      { action: Action.INFLUENCE_CARD, anyInfluenceBonus: true }
+    ])
+    expect(underTest.benefit).to.undefined
+    expect(underTest.newBotResources).to.eql({resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
+    expect(underTest.isRest).to.true
+  })
+
+  it('rest-4', () => {
+    const deck = CardDeck.fromPersistence({pile: [6], discard: [5,1,2,3]})
+    const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
+
+    expect(underTest.actions).to.eql([
+      { action: Action.INFLUENCE_CARD }
+    ])
+    expect(underTest.benefit).to.undefined
+    expect(underTest.newBotResources).to.eql({resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
+    expect(underTest.isRest).to.true
+  })
+
+  it('rest-5', () => {
+    const deck = CardDeck.fromPersistence({pile: [6], discard: [5,4,1,2,3]})
+    const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
+
+    expect(underTest.actions).to.eql([
+      { action: Action.TRANSLATOR_RETIRE, retireTranslator: 6 }
+    ])
+    expect(underTest.benefit).to.undefined
+    expect(underTest.newBotResources).to.eql({resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
+    expect(underTest.isRest).to.true
   })
 })

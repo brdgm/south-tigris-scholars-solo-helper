@@ -1,6 +1,9 @@
 <template>
   <SideBar :navigationState="navigationState"/>
-  <h1>{{t('turnBot.title')}}</h1>
+  <h1>
+    {{t('turnBot.title')}}
+    <span v-if="botActions?.isRest">[REST]</span>
+  </h1>
 
   <template v-if="botActions">
     <BotBenefit v-if="botActions.benefit" :benefit="botActions.benefit"/>

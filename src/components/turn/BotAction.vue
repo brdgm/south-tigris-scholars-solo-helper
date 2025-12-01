@@ -17,6 +17,9 @@
   <div v-if="action.travelInfluence"> 
     travelInfluence: <b>{{ action.travelInfluence }}</b>
   </div>
+  <div v-if="action.retireTranslator"> 
+    retireTranslator: <b>{{ action.retireTranslator }}</b>
+  </div>
 </template>
 
 <script lang="ts">

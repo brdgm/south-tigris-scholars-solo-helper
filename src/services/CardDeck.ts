@@ -30,12 +30,38 @@ export default class CardDeck {
     return this._discard.value
   }
 
+  public get discardBlueCount() : number {
+    return this.getCardColorCount(SchemeCardColor.BLUE)
+  }
+
+  public get discardRedCount() : number {
+    return this.getCardColorCount(SchemeCardColor.RED)
+  }
+
   /**
    * Returns true if the discard has 3 red or 3 blue cards.
    */
   public get isRest() : boolean {
-    return this._discard.value.filter(card => card.color === SchemeCardColor.RED).length === 3
-        || this._discard.value.filter(card => card.color === SchemeCardColor.BLUE).length === 3
+    return this.getCardColorCount(SchemeCardColor.RED) == 3 || this.getCardColorCount(SchemeCardColor.BLUE) == 3
+  }
+
+  /**
+   * Returns the color which has majority in the discard pile.
+   */
+  public get colorMajority() : SchemeCardColor {
+    const redCount = this.getCardColorCount(SchemeCardColor.RED)
+    const blueCount = this.getCardColorCount(SchemeCardColor.BLUE)
+    if (redCount > blueCount) {
+      return SchemeCardColor.RED
+    }
+    if (blueCount > redCount) {
+      return SchemeCardColor.BLUE
+    }
+    return this._discard.value[0].color ?? SchemeCardColor.BLUE
+  }
+
+  private getCardColorCount(color : SchemeCardColor) : number {
+    return this._discard.value.filter(card => card.color === color).length
   }
 
   /**

@@ -5,6 +5,10 @@
       Resources: {{ navigationState.botResources.resourceTrack }}<br/>
       Dice Sum: {{ navigationState.botResources.diceSum }}
     </p>
+    <p class="mt-2">
+      Blue: {{ cardDeck.discardBlueCount }}<br/>
+      Red: {{ cardDeck.discardRedCount }}
+    </p>
   </div>
 </template>
 
