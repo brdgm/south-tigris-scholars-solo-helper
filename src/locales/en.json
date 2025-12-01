@@ -38,8 +38,12 @@
     }
   },
   "turnPlayer": {
+    "title": "Player",
     "execute": "Execute you turn.",
     "playerPaySilver": "Silver/Provisions you paid to the AI:"
+  },
+  "turnBot": {
+    "title": "AI"
   },
   "sideBar": {
     "turn": "Turn {turn}"
