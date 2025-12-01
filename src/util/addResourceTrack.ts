@@ -1,7 +1,7 @@
 import { BotResources } from '@/store/state'
 
 /**
- * Add silver/provisions to resource track.
+ * Add silver to resource track.
  * @param botResources Bot resources
  * @param value Progress steps
  * @returns New bot resources
