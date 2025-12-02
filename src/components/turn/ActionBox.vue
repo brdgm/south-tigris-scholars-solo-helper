@@ -11,7 +11,7 @@
       </div>
       <slot name="action"></slot>
       <div class="bonus" v-if="action.silverBonus">
-        <AppIcon v-for="(guild,index) of action.silverBonus" :key="index" name="silver" extension="webp" class="icon silver"/>
+        <AppIcon v-for="index of action.silverBonus" :key="index" name="silver" extension="webp" class="icon silver"/>
       </div>
       <div class="bonus" v-if="action.anyInfluenceBonus">
         <AppIcon name="any-influence-bonus" class="icon"/>
