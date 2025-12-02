@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17.58 27.68">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke-width: .5px;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-2, .cls-4, .cls-5 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        stroke-width: .75px;
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-5 {
+        stroke-width: .25px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-3" d="M1.93.38C1.07.38.37,1.07.37,1.94v23.8c0,.87.7,1.57,1.56,1.57h13.72c.86,0,1.56-.7,1.56-1.57V1.94c0-.86-.7-1.56-1.56-1.56H1.93Z"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="-22.35" y1="641.41" x2="-21.35" y2="641.41" gradientTransform="translate(376.51 10810.01) scale(16.83 -16.83)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#70be44"/>
+      <stop offset="1" stop-color="#0a6b37"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-7">
+    <rect class="cls-6" x=".37" y=".38" width="16.83" height="26.93"/>
+  </g>
+  <g>
+    <path class="cls-4" d="M17.21,25.74c0,.87-.7,1.57-1.56,1.57H1.93c-.86,0-1.56-.7-1.56-1.57V1.94C.38,1.07,1.07.38,1.93.38h13.72c.86,0,1.56.7,1.56,1.56v23.8Z"/>
+    <polygon class="cls-1" points="14.67 14.4 11.88 14.4 11.88 17.23 11.2 17.23 11.2 14.4 8.41 14.4 8.41 13.74 11.2 13.74 11.2 10.91 11.88 10.91 11.88 13.74 14.67 13.74 14.67 14.4"/>
+    <polygon class="cls-2" points="14.67 14.4 11.88 14.4 11.88 17.23 11.2 17.23 11.2 14.4 8.41 14.4 8.41 13.74 11.2 13.74 11.2 10.91 11.88 10.91 11.88 13.74 14.67 13.74 14.67 14.4"/>
+  </g>
+  <g>
+    <path class="cls-1" d="M6.97,9.11l-2.17,10.48h-1.24l2.09-10.06h-2.73v-1.1h3.45c.16,0,.29.06.41.18.12.12.18.25.18.38v.12Z"/>
+    <path class="cls-5" d="M6.97,9.11l-2.17,10.48h-1.24l2.09-10.06h-2.73v-1.1h3.45c.16,0,.29.06.41.18.12.12.18.25.18.38v.12Z"/>
+  </g>
+</svg>

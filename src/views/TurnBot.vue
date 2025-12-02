@@ -13,12 +13,19 @@
   <PlayerPaySilver v-model="playerPaySilver"/>
   <BotBenefit v-if="additionalResourceTrackBenefit" :benefit="additionalResourceTrackBenefit"/>
 
-  <button class="btn btn-success btn-lg mt-4 me-2" @click="next()">
-    {{t('turnBot.executed')}}
-  </button>
-  <button class="btn btn-danger btn-lg mt-4 me-2" @click="notPossible()" v-if="isChoiceAction">
-    {{t('turnBot.notPossible')}}
-  </button>
+  <template v-if="hasMoreActions">
+    <button class="btn btn-success btn-lg mt-4 me-2" @click="next()">
+      {{t('turnBot.executed')}}
+    </button>
+    <button class="btn btn-danger btn-lg mt-4 me-2" @click="notPossible()">
+      {{t('turnBot.notPossible')}}
+    </button>
+  </template>
+  <template v-else>
+    <button class="btn btn-primary btn-lg mt-4 me-2" @click="next()">
+      {{t('action.next')}}
+    </button>
+  </template>
 
   <DebugInfo :navigationState="navigationState"/>
 
@@ -81,8 +88,8 @@ export default defineComponent({
     currentAction() : CardAction {
       return this.allActions[this.action]
     },
-    isChoiceAction() : boolean {
-      return this.action % 2 == 0
+    hasMoreActions() : boolean {
+      return this.allActions.length > this.action + 1
     },
     additionalResourceTrackBenefit() : Benefit|undefined {
       return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.playerPaySilver),

@@ -1,24 +1,6 @@
 <template>
-  <div v-if="action.requireEmployedTranslators" style="color:red"> 
-    requireEmployedTranslators: <b>{{action.requireEmployedTranslators}}</b>
-  </div>
-  <div v-if="action.requireScrollCardsHouseOfWisdom" style="color:red"> 
-    requireScrollCardsHouseOfWisdom: <b>{{action.requireScrollCardsHouseOfWisdom}}</b>
-  </div>
-  <div v-if="action.anyInfluenceBonus" style="color:green"> 
-    influenceBonus: <b>any</b>
-  </div>
-  <div v-if="action.silverBonus" style="color:green"> 
-    silverBonus: <b>{{action.silverBonus}}</b>
-  </div>
-  <div>
-    action: <b>{{ action.action }}</b>
-  </div>
-  <div v-if="action.travelInfluence"> 
-    travelInfluence: <b>{{ action.travelInfluence }}</b>
-  </div>
-  <div v-if="action.retireTranslator"> 
-    retireTranslator: <b>{{ action.retireTranslator }}</b>
+  <div class="actionItem">
+    <component :is="componentName" :action="action"/>
   </div>
 </template>
 
@@ -26,9 +8,23 @@
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { CardAction } from '@/services/Card'
+import ActionTranslatorPlaceGold from './action/ActionTranslatorPlaceGold.vue'
+import ActionTranslatorEmploy from './action/ActionTranslatorEmploy.vue'
+import ActionTranslatorRetire from './action/ActionTranslatorRetire.vue'
+import ActionTranslate from './action/ActionTranslate.vue'
+import ActionTravel from './action/ActionTravel.vue'
+import ActionInfluenceCard from './action/ActionInfluenceCard.vue'
 
 export default defineComponent({
   name: 'BotAction',
+  components: {
+    ActionTranslatorPlaceGold,
+    ActionTranslatorEmploy,
+    ActionTranslatorRetire,
+    ActionTranslate,
+    ActionTravel,
+    ActionInfluenceCard
+  },
   setup() {
     const { t } = useI18n()
     return { t }
@@ -38,6 +34,22 @@ export default defineComponent({
       type: Object as PropType<CardAction>,
       required: true
     }
+  },
+  computed: {
+    componentName() : string {
+      return `action-${this.action.action}`
+    }
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.actionItem {
+  margin-top: 15px;
+  max-width: 32rem;
+  padding-right: 10rem;
+  @media (max-width: 600px) {
+    padding-right: 8rem;
+  }
+}
+</style>
