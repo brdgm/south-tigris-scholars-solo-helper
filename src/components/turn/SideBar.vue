@@ -3,7 +3,7 @@
     {{t('sideBar.turn', {turn})}}
     <div class="metric">
       <div class="label"><AppIcon name="resource-tracker" class="icon"/></div>
-      <div>{{ navigationState.botResources.resourceTrack }}</div>
+      <div>{{ navigationState.botResources.resourceTrack+1 }}</div>
     </div>
     <div class="metric">
       <div class="label">

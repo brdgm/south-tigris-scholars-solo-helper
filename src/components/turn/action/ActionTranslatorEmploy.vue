@@ -5,6 +5,10 @@
         <AppIcon type="action" :name="action.action" class="icon"/>
       </div>
     </template>
+    <template #priority>
+      <TranslatorPriority :navigationState="navigationState"/>
+      <TranslatorRoomPriority :navigationState="navigationState"/>
+    </template>
     <template #instruction>
       <p v-html="t('rules.action.translatorEmploy.instruction')"/>
     </template>
@@ -17,13 +21,18 @@ import { useI18n } from 'vue-i18n'
 import { CardAction } from '@/services/Card'
 import ActionBox from '../ActionBox.vue'
 import AppIcon from '@/components/structure/AppIcon.vue'
+import NavigationState from '@/util/NavigationState'
+import TranslatorRoomPriority from '@/components/structure/TranslatorRoomPriority.vue'
+import TranslatorPriority from '@/components/structure/TranslatorPriority.vue'
 
 export default defineComponent({
   name: 'ActionTranslatorEmploy',
   inheritAttrs: false,
   components: {
     ActionBox,
-    AppIcon
+    AppIcon,
+    TranslatorRoomPriority,
+    TranslatorPriority
   },
   setup() {
     const { t } = useI18n()
@@ -32,6 +41,10 @@ export default defineComponent({
   props: {
     action: {
       type: Object as PropType<CardAction>,
+      required: true
+    },
+    navigationState: {
+      type: NavigationState,
       required: true
     }
   }

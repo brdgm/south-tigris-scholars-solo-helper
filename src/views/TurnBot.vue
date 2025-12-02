@@ -7,7 +7,7 @@
 
   <template v-if="botActions">
     <BotBenefit v-if="botActions.benefit" :benefit="botActions.benefit"/>
-    <BotAction :action="currentAction"/>
+    <BotAction :action="currentAction" :navigationState="navigationState"/>
   </template>
 
   <PlayerPaySilver v-model="playerPaySilver"/>
