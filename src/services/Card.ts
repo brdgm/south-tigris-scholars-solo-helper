@@ -1,4 +1,5 @@
 import Action from './enum/Action'
+import Guild from './enum/Guild'
 import SchemeCardColor from './enum/SchemeCardColor'
 
 export default interface Card {
@@ -11,7 +12,7 @@ export default interface Card {
 export interface CardAction {
   action: Action
   silverBonus?: number
-  anyInfluenceBonus?: boolean
+  influenceBonus?: Guild[]
   requireEmployedTranslators?: number
   requireScrollCardsHouseOfWisdom?: number
   travelInfluence?: number[]

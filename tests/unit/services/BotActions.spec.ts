@@ -1,7 +1,7 @@
 import BotActions from '@/services/BotActions'
 import CardDeck from '@/services/CardDeck'
 import Action from '@/services/enum/Action'
-import Benefit from '@/services/enum/Benefit'
+import Guild from '@/services/enum/Guild'
 import { expect } from 'chai'
 
 describe('services/BotActions', () => {
@@ -36,10 +36,10 @@ describe('services/BotActions', () => {
     const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
 
     expect(underTest.actions).to.eql([
-      { action: Action.INFLUENCE_CARD, requireEmployedTranslators: 6, anyInfluenceBonus: true },
+      { action: Action.INFLUENCE_CARD, requireEmployedTranslators: 6, influenceBonus: [Guild.ANY] },
       { action: Action.TRANSLATOR_EMPLOY }
     ])
-    expect(underTest.benefit).to.eq(Benefit.INFLUENCE_ORANGE)
+    expect(underTest.benefit).to.eql({ action: Action.INFLUENCE, influenceBonus: [Guild.ORANGE] })
     expect(underTest.newBotResources).to.eql({resourceTrack: 1, resourceTrackBenefitsClaimed:3, diceSum: 1})
     expect(underTest.isRest).to.false
   })
@@ -49,7 +49,7 @@ describe('services/BotActions', () => {
     const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
 
     expect(underTest.actions).to.eql([
-      { action: Action.INFLUENCE_CARD, anyInfluenceBonus: true }
+      { action: Action.INFLUENCE_CARD, influenceBonus: [Guild.ANY] }
     ])
     expect(underTest.benefit).to.undefined
     expect(underTest.newBotResources).to.eql({resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})

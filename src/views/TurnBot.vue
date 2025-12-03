@@ -6,8 +6,8 @@
   </h1>
 
   <template v-if="botActions">
-    <BotBenefit v-if="botActions.benefit" :benefit="botActions.benefit"/>
     <BotAction :action="currentAction" :navigationState="navigationState"/>
+    <BotAction v-if="botActions.benefit" :action="botActions.benefit" :navigationState="navigationState"/>
   </template>
 
   <PlayerPaySilver v-model="playerPaySilver"/>
@@ -42,7 +42,6 @@ import { useStateStore } from '@/store/state'
 import SideBar from '@/components/turn/SideBar.vue'
 import DebugInfo from '@/components/turn/DebugInfo.vue'
 import PlayerPaySilver from '@/components/turn/PlayerPaySilver.vue'
-import Benefit from '@/services/enum/Benefit'
 import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
 import addResourceTrack from '@/util/addResourceTrack'
 import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
@@ -91,7 +90,7 @@ export default defineComponent({
     hasMoreActions() : boolean {
       return this.allActions.length > this.action + 1
     },
-    additionalResourceTrackBenefit() : Benefit|undefined {
+    additionalResourceTrackBenefit() : CardAction|undefined {
       return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.playerPaySilver),
           this.navigationState.botResources.resourceTrackBenefitsClaimed)
     }

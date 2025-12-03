@@ -1,10 +1,10 @@
 import { BotResources } from '@/store/state'
 import CardDeck from './CardDeck'
-import Benefit from './enum/Benefit'
 import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
 import { CardAction } from './Card'
 import Action from './enum/Action'
 import SchemeCardColor from './enum/SchemeCardColor'
+import Guild from './enum/Guild'
 
 /**
  * Bot actions derived from scheme card deck.
@@ -12,11 +12,11 @@ import SchemeCardColor from './enum/SchemeCardColor'
 export default class BotActions {
 
   public readonly actions : CardAction[]
-  public readonly benefit? : Benefit
+  public readonly benefit? : CardAction
   public readonly newBotResources : BotResources
   public readonly isRest : boolean
   
-  private constructor(actions : CardAction[], benefit: Benefit|undefined, newBotResources : BotResources, isRest: boolean) {
+  private constructor(actions : CardAction[], benefit: CardAction|undefined, newBotResources : BotResources, isRest: boolean) {
     this.actions = actions
     this.benefit = benefit
     this.newBotResources = newBotResources
@@ -29,7 +29,7 @@ export default class BotActions {
       const actions : CardAction[] = []
       switch (cardDeck.discard.length) {
         case 3:
-          actions.push({ action: Action.INFLUENCE_CARD, anyInfluenceBonus:true })
+          actions.push({ action: Action.INFLUENCE_CARD, influenceBonus: [Guild.ANY] })
           break
         case 4:
           actions.push({ action: Action.INFLUENCE_CARD })

@@ -2,7 +2,7 @@
   <div class="sidebar">
     {{t('sideBar.turn', {turn})}}
     <div class="metric">
-      <div class="label"><AppIcon name="resource-tracker" class="icon"/></div>
+      <div class="label"><AppIcon name="resource-tracker" class="icon resourceTracker"/></div>
       <div>{{ navigationState.botResources.resourceTrack+1 }}</div>
     </div>
     <div class="metric">
@@ -89,6 +89,9 @@ export default defineComponent({
 }
 .icon {
   height: 1.75rem;
+  &.resourceTracker {
+    height: 1.5rem;
+  }
   &.cards {
     margin-top: -0.25rem;
   }

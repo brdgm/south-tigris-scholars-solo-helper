@@ -2,6 +2,7 @@ import findMandatory from '@brdgm/brdgm-commons/src/util/map/findMandatory'
 import Card from './Card'
 import Action from './enum/Action'
 import SchemeCardColor from './enum/SchemeCardColor'
+import Guild from './enum/Guild'
 
 /**
  * Scheme cards
@@ -48,7 +49,7 @@ const cards : Card[] = [
     color: SchemeCardColor.RED,
     silverValue: 1,
     actions: [
-      { action: Action.TRANSLATOR_PLACE_GOLD, requireEmployedTranslators: 5, anyInfluenceBonus: true },
+      { action: Action.TRANSLATOR_PLACE_GOLD, requireEmployedTranslators: 5, influenceBonus: [Guild.ANY] },
       { action: Action.TRANSLATOR_EMPLOY, silverBonus: 2 }
     ]
   },
@@ -57,7 +58,7 @@ const cards : Card[] = [
     color: SchemeCardColor.RED,
     silverValue: 2,
     actions: [
-      { action: Action.INFLUENCE_CARD, requireEmployedTranslators: 6, anyInfluenceBonus: true },
+      { action: Action.INFLUENCE_CARD, requireEmployedTranslators: 6, influenceBonus: [Guild.ANY] },
       { action: Action.TRANSLATOR_EMPLOY }
     ]
   },

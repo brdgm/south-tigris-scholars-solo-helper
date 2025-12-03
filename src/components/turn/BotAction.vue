@@ -14,6 +14,7 @@ import ActionTranslatorRetire from './action/ActionTranslatorRetire.vue'
 import ActionTranslate from './action/ActionTranslate.vue'
 import ActionTravel from './action/ActionTravel.vue'
 import ActionInfluenceCard from './action/ActionInfluenceCard.vue'
+import ActionInfluence from './action/ActionInfluence.vue'
 import NavigationState from '@/util/NavigationState'
 
 export default defineComponent({
@@ -24,6 +25,7 @@ export default defineComponent({
     ActionTranslatorRetire,
     ActionTranslate,
     ActionTravel,
+    ActionInfluence,
     ActionInfluenceCard
   },
   setup() {

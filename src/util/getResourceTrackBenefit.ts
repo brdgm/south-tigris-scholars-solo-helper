@@ -1,4 +1,6 @@
-import Benefit from '@/services/enum/Benefit'
+import { CardAction } from '@/services/Card'
+import Action from '@/services/enum/Action'
+import Guild from '@/services/enum/Guild'
 
 /**
  * Get resource track benefit when wrapping over.
@@ -7,20 +9,20 @@ import Benefit from '@/services/enum/Benefit'
  * @param resourceTrackBenefitsClaimed Number of resource track benefits claimed
  * @returns Resource track benefit
  */
-export default function getResourceTrackBenefit(resourceTrack: number, resourceTrackAdd: number, resourceTrackBenefitsClaimed: number) : Benefit|undefined {
+export default function getResourceTrackBenefit(resourceTrack: number, resourceTrackAdd: number, resourceTrackBenefitsClaimed: number) : CardAction|undefined {
   const newResourceTrack = resourceTrack + resourceTrackAdd
   if (resourceTrack < 6 && newResourceTrack >= 6) {
     switch (resourceTrackBenefitsClaimed) {
       case 0:
-        return Benefit.INFLUENCE_PURPLE
+        return { action: Action.INFLUENCE, influenceBonus: [Guild.PURPLE] }
       case 1:
       case 3:
       case 5:
-        return Benefit.TRANSLATOR_PUT_GOLD
+        return { action: Action.TRANSLATOR_PLACE_GOLD }
       case 2:
-        return Benefit.INFLUENCE_ORANGE
+        return { action: Action.INFLUENCE, influenceBonus: [Guild.ORANGE] }
       case 4:
-        return Benefit.INFLUENCE_GREEN
+        return { action: Action.INFLUENCE, influenceBonus: [Guild.GREEN] }
       default:
         return undefined
     }

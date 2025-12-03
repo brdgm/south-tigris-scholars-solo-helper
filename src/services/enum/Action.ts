@@ -7,6 +7,7 @@ enum Action {
   TRANSLATOR_RETIRE = 'translator-retire',
   TRANSLATE = 'translate',
   TRAVEL = 'travel',
+  INFLUENCE = 'influence',
   INFLUENCE_CARD = 'influence-card'
 }
 export default Action

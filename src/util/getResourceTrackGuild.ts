@@ -23,7 +23,7 @@ export default function getResourceTrackGuild(resourceTrack : number) : Guild[] 
 }
 
 function getGuildsStartingWith(guild: Guild): Guild[] {
-  const guildsInOrder = getAllEnumValues(Guild)
+  const guildsInOrder : Guild[] = getAllEnumValues(Guild).filter(g => g !== Guild.ANY)
   const startIndex = guildsInOrder.indexOf(guild)
   return [...guildsInOrder.slice(startIndex), ...guildsInOrder.slice(0, startIndex)]
 }

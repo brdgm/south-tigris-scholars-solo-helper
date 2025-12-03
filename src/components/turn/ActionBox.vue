@@ -13,8 +13,9 @@
       <div class="bonus" v-if="action.silverBonus">
         <AppIcon v-for="index of action.silverBonus" :key="index" name="silver" extension="webp" class="icon silver"/>
       </div>
-      <div class="bonus" v-if="action.anyInfluenceBonus">
-        <AppIcon name="any-influence-bonus" class="icon"/>
+      <div class="bonus" v-if="action.influenceBonus">
+        <AppIcon v-for="(guild,index) of action.influenceBonus" :key="index" type="guild" :name="guild" class="icon"/>
+        <AppIcon name="multiple" class="multiple"/>
       </div>
       <div class="bonus" v-if="action.travelInfluence">
         <AppIcon type="travel-influence" :name="action.travelInfluence.join('-')" class="icon"/>
@@ -127,6 +128,11 @@ export default defineComponent({
     }
     .icon + .icon {
       margin-left: -1rem;
+    }
+    .multiple {
+      height: 1.5rem;
+      margin-top: 0.7rem;
+      margin-left: -1.1rem;
     }
     .arrow {
       height: 1.5rem;
