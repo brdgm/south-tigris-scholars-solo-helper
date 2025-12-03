@@ -47,6 +47,33 @@
     "executed": "Executed",
     "notPossible": "Not Possible"
   },
+  "gameEnd": {
+    "title": "End of Game",
+    "botCards": {
+      "title": "AI Scroll Cards",
+      "count": "Count",
+      "cards": "Cards",
+      "vp": "VP",
+      "retiredTranslator": "Retired Translators",
+      "retiredTranslatorBodyOfBooks": "Retired Translators (without Page Cards)",
+      "translatedScrollCard": "Translated Scrolls",
+      "remainingResearchMarker": "Remaining Research Markers",
+      "employedNeutralTranslator": "Employed Neutral Translators",
+      "influence": "Total Influence on all Guilds"
+    },
+    "scoring": {
+      "title": "Victory Points",
+      "diceSum": "Dice Sum VP",
+      "retiredTranslators": "Retired Translators VP",
+      "retiredTranslatorsBodyOfBooks": "Retired Translators and Page Cards VP",
+      "guildMajorities": "Guild Majorities VP",
+      "caliphCards": "Caliph Cards VP",
+      "researchMarkers": "Research Markers VP",
+      "scrollCards": "Scroll Cards VP",
+      "rowBonusTiles": "Row Bonus Tiles VP",
+      "totalVP": "Total VP"
+    }
+  },
   "sideBar": {
     "turn": "Turn {turn}"
   },
