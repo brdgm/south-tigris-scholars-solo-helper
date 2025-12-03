@@ -70,8 +70,8 @@
         "requireEmployedTranslators": "The action can only be executed, if there are at least {count} Employed Translators.",
         "requireScrollCardsHouseOfWisdom": "The action can only be executed, if there are at least {count} Scrolls Cards in the House of Wisdom.",
         "influence1AnyBonus": "The AI places influence on a Guild. They will focus on a Guild where no players have any Influence. If there are multiple options available, they will decide between those options by selecting the Guild where they have no Influence. If there are still multiple options, they will decide between those options using their colour focus.",
-        "influenceBonus": "The AI places the depicted influence on a Guild.",
-        "silverBonus": "The AI gains the depicted amount of silver (managed by the application)."
+        "influenceBonus": "The AI places the indicated influence on a Guild.",
+        "silverBonus": "The AI gains the indicated amount of silver (managed by the application)."
       },
       "influenceCard": {
         "title": "Influence Card",
