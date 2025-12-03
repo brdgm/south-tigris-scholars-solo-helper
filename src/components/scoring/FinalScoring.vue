@@ -283,12 +283,6 @@ export default defineComponent({
       botInfluenceCount
     }
   },
-  props: {
-    navigationState: {
-      type: NavigationState,
-      required: true
-    }
-  },
   data() {
     return {
       coins: [] as number[]

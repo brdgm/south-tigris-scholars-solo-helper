@@ -1,7 +1,7 @@
 <template>
   <h1>{{t('gameEnd.title')}}</h1>
 
-  <FinalScoring :navigationState="navigationState"/>
+  <FinalScoring/>
 
   <p class="mt-3">
     {{t('setup.difficultyLevel.title')}}: <b>{{t(`difficultyLevel.${state.setup.difficultyLevel}`)}}</b>
