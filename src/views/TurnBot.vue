@@ -105,7 +105,7 @@ export default defineComponent({
         player: this.navigationState.player,
         botPersistence: {
           cardDeck: this.navigationState.cardDeck.toPersistence(),
-          botResources: addResourceTrack(this.navigationState.botResources, toNumber(this.playerPaySilver))
+          botResources: addResourceTrack(this.navigationState.botResources, toNumber(this.playerPaySilver) + (this.currentAction.silverBonus ?? 0))
         }
       })
       this.router.push(`/turn/${this.turn+1}/player`)

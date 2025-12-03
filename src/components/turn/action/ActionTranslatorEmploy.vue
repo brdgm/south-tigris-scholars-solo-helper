@@ -10,7 +10,9 @@
       <TranslatorRoomPriority :navigationState="navigationState"/>
     </template>
     <template #instruction>
-      <p v-html="t('rules.action.translatorEmploy.instruction')"/>
+      <p v-html="t('rules.action.translatorEmploy.chooseTranslator')"/>
+      <p v-html="t('rules.action.translatorEmploy.chooseRoom')"/>
+      <p v-html="t('rules.action.translatorEmploy.neutralTranslators')"/>
     </template>
   </ActionBox>
 </template>

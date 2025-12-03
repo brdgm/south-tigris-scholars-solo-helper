@@ -64,6 +64,63 @@
     "persian": "Persian",
     "syriac": "Syriac"
   },
+  "rules": {
+    "action": {
+      "general": {
+        "requireEmployedTranslators": "The action can only be executed, if there are at least {count} Employed Translators.",
+        "requireScrollCardsHouseOfWisdom": "The action can only be executed, if there are at least {count} Scrolls Cards in the House of Wisdom.",
+        "influence1AnyBonus": "The AI places influence on a Guild. They will focus on a Guild where no players have any Influence. If there are multiple options available, they will decide between those options by selecting the Guild where they have no Influence. If there are still multiple options, they will decide between those options using their colour focus.",
+        "influenceBonus": "The AI places the depicted influence on a Guild.",
+        "silverBonus": "The AI gains the depicted amount of silver (managed by the application)."
+      },
+      "influenceCard": {
+        "title": "Influence Card",
+        "houseOfWisdomScrolls": "The AI influences a scroll card. They focus on the House of Wisdom first:",
+        "mapScrolls": "If all Scrolls in the House of Wisdom already have Influence on them, they will focus on the Map:"
+      },
+      "translate": {
+        "title": "Translate",
+        "translate": "The AI will translate a scroll form the House of Wisdom:",
+        "languageFocus": "Use their language focus to select a scroll card.",
+        "lowestRow": "If there are multiple options available, they will decide between those options by selecting the Scroll Card that is in the lowest row in the House of Wisdom.",
+        "guildFocus": "If there are still multiple options, they will decide between those options using their colour focus.",
+        "placeCard": "After Translating a Scroll Card, place it facedown above the matching language printed on the Solo Board. Then place up to a number of Gold from the Main Supply as indicated by the Gold icon below the language on the Solo Board.",
+        "placeGold": {
+          "title": "They will aim to place the required number of Gold, while never placing more than 1 Gold during the same Translation action on a single Translator. When placing Gold, follow these steps:",
+          "neutralTranslatorsLanguage": "Place onto Neutral Translators who can speak the Scroll Card’s language, moving from right to left across the Main Board.",
+          "translatorsLanguage": "Place onto your Translators who can speak the Scroll Card’s language, moving from left to right across the Main Board. You receive 1 Silver for each.",
+          "neutralTranslators": "Place onto Neutral Translators who cannot speak the Scroll Card’s language, moving from right to left across the Main Board.",
+          "translators": "Place onto your Translators who cannot speak the Scroll Card’s language, moving from left to right across the Main Board. You receive 1 Silver for each."
+        }
+      },
+      "travel": {
+        "title": "Deliver a Scroll Card",
+        "deliverScroll": "They deliver a Scroll form the Map:",
+        "languageFocus": "Use their language focus, looking clockwise around the Map, starting from the Neutral Marker.",
+        "neutralMarkRelation": "While they do not move the Neutral Marker, they act as if they would have, just like you moving your Player Marker. As such, they won’t target the Scroll Card adjacent to the Neutral Marker, unless they do a full loop around the Map.",
+        "placeCard": "When Delivering their chosen Scroll Card, they will aim to place it into the highest row in the House of Wisdom. If there are multiple options available, they will decide between those options using their colour focus.",
+        "influenceTwo": "After Delivering, they will gain <b>exactly 2 Influence</b> in the Guild where they Delivered (independent of the row they delivery to).",
+        "influenceDependingOnRow": "After Delivering, they will gain either <b>1 or 2 Influence</b> in the Guild where they Delivered (depending on the row they delivered to)."
+      },
+      "translatorEmploy": {
+        "title": "Employ Translator",
+        "chooseTranslator": "Use their Translator focus when Employing a Translator, while trying to avoid Employing any duplicates across all Rooms (regardless of ownership). If all 6 Translators are already Employed, they will just Employ using their original focus despite them being a duplicate.",
+        "chooseRoom": "They place the Translator into the right-most available Room according their room cost focus.",
+        "neutralTranslators": "Since your opponent owns all Neutral Translators, there is no need to place their Influence on them. They ignore all costs and immediate effects from Rooms."
+      },
+      "translatorPlaceGold": {
+        "title": "Place Gold on Translator",
+        "instruction": "The AI places 1 Gold on the left-most neutral translator."
+      },
+      "translatorRetire": {
+        "title": "Retire Translator",
+        "instruction": "The AI retires the pictured Translator from the top section of the Main Board."
+      },
+      "influence": {
+        "title": "Influence"
+      }
+    }
+  },
   "notfound": {
     "title": "Not Found"
   },

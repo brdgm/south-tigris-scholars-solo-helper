@@ -1,16 +1,26 @@
 <template>
-  <ActionBox :action="action" :instruction-title="t('rules.action.influenceCard.title')">
+  <ActionBox :action="action" :instruction-title="t('rules.action.influenceCard.title')" :modalSizeLg="true">
     <template #action>
       <div class="action">
         <AppIcon type="action" :name="action.action" class="icon"/>
       </div>
     </template>
     <template #priority>
-      <GuildPriority :navigationState="navigationState"/>
       <LanguagePriority :navigationState="navigationState"/>
+      <GuildPriority :navigationState="navigationState"/>
     </template>
     <template #instruction>
-      <p v-html="t('rules.action.influenceCard.instruction')"/>
+      <p v-html="t('rules.action.influenceCard.houseOfWisdomScrolls')"/>
+      <ul>
+        <li v-html="t('rules.action.translate.languageFocus')"/>
+        <li v-html="t('rules.action.translate.lowestRow')"/>
+        <li v-html="t('rules.action.translate.guildFocus')"/>
+      </ul>
+      <p v-html="t('rules.action.influenceCard.mapScrolls')"/>
+      <ul>
+        <li v-html="t('rules.action.travel.languageFocus')"/>
+        <li v-html="t('rules.action.travel.neutralMarkRelation')"/>
+      </ul>
     </template>
   </ActionBox>
 </template>

@@ -28,7 +28,12 @@
 
   <ModalDialog :id="modalId" :title="instructionTitle" :scrollable="true" :size-lg="modalSizeLg">
     <template #body>
+      <p v-if="action.requireEmployedTranslators" v-html="t('rules.action.general.requireEmployedTranslators', {count:action.requireEmployedTranslators})"/>
+      <p v-if="action.requireScrollCardsHouseOfWisdom" v-html="t('rules.action.general.requireScrollCardsHouseOfWisdom', {count:action.requireScrollCardsHouseOfWisdom})"/>
       <slot name="instruction"></slot>
+      <p v-if="isInfluence1AnyBonus" v-html="t('rules.action.general.influence1AnyBonus')"/>
+      <p v-else-if="action.influenceBonus" v-html="t('rules.action.general.influenceBonus')"/>
+      <p v-if="action.silverBonus" v-html="t('rules.action.general.silverBonus')"/>
     </template>
   </ModalDialog>
 </template>
@@ -40,6 +45,8 @@ import showModal from '@brdgm/brdgm-commons/src/util/modal/showModal'
 import AppIcon from '../structure/AppIcon.vue'
 import { CardAction } from '@/services/Card'
 import { nanoid } from 'nanoid'
+import { useI18n } from 'vue-i18n'
+import Guild from '@/services/enum/Guild'
 
 export default defineComponent({
   name: 'ActionBox',
@@ -48,8 +55,9 @@ export default defineComponent({
     AppIcon
   },
   setup() {
+    const { t } = useI18n()
     const modalId = `modal-${nanoid()}`
-    return { modalId }
+    return { t, modalId }
   },
   props: {
     action: {
@@ -71,6 +79,9 @@ export default defineComponent({
     },
     hasInstruction() : boolean {
       return this.$slots.instruction !== undefined
+    },
+    isInfluence1AnyBonus() : boolean {
+      return this.action.influenceBonus !== undefined && this.action.influenceBonus.length === 1 && this.action.influenceBonus[0] == Guild.ANY
     }
   },
   methods: {
