@@ -61,10 +61,10 @@
         </tr>
         <tr>
           <th scope="row">
-            <span v-html="t('gameEnd.botCards.remainingResearchMarker')"></span>
+            <span v-html="t('gameEnd.botCards.researchMarker')"></span>
           </th>
           <td>
-            {{botRemainingResearchMarkerCount}}
+            {{navigationState.botResources.resourceTrackBenefitsClaimed}}
           </td>
           <td>
             <AppIcon type="translator" name="3" extension="webp" class="translator"/>
@@ -306,12 +306,8 @@ export default defineComponent({
     botGreekScrollVP () : number {
       return toNumber(this.botGreekScrollCount) * this.botTranslatedScrollCardCount
     },
-    botRemainingResearchMarkerCount() : number {
-      const count = 6 - this.navigationState.botResources.resourceTrackBenefitsClaimed
-      return Math.max(0, count)
-    },
     botHebrewScrollVP () : number {
-      return toNumber(this.botHebrewScrollCount) * this.botRemainingResearchMarkerCount
+      return toNumber(this.botHebrewScrollCount) * this.navigationState.botResources.resourceTrackBenefitsClaimed
     },
     botPersianScrollVP () : number {
       return toNumber(this.botPersianScrollCount) * toNumber(this.botEmployedNeutralTranslatorCount)

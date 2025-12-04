@@ -14,6 +14,10 @@
       <div>{{ navigationState.botResources.diceSum }}</div>
     </div>
     <div class="metric">
+      <div class="label"><AppIcon name="research-marker" class="icon"/></div>
+      <div>{{ navigationState.botResources.resourceTrackBenefitsClaimed }}</div>
+    </div>
+    <div class="metric">
       <div class="label"><AppIcon name="scheme-cards-blue" class="icon cards"/></div>
       <div>{{ cardDeck.discardBlueCount }}</div>
     </div>
