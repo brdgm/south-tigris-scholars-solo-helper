@@ -4,7 +4,7 @@
 
   <p class="mt-4" v-html="t('turnPlayer.execute')"></p>
 
-  <PlayerPaySilver v-model="playerPaySilver"/>
+  <BotSilver v-model="botSilver"/>
 
   <div v-if="additionalResourceTrackBenefit" class="mt-3">
     [{{additionalResourceTrackBenefit}}]
@@ -28,7 +28,7 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useStateStore } from '@/store/state'
 import SideBar from '@/components/turn/SideBar.vue'
 import DebugInfo from '@/components/turn/DebugInfo.vue'
-import PlayerPaySilver from '@/components/turn/PlayerPaySilver.vue'
+import BotSilver from '@/components/turn/BotSilver.vue'
 import Benefit from '@/services/enum/Benefit'
 import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
 import addResourceTrack from '@/util/addResourceTrack'
@@ -40,7 +40,7 @@ export default defineComponent({
     FooterButtons,
     SideBar,
     DebugInfo,
-    PlayerPaySilver
+    BotSilver
   },
   setup() {
     const { t } = useI18n()
@@ -55,7 +55,7 @@ export default defineComponent({
   },
   data() {
     return {
-      playerPaySilver: 0
+      botSilver: 0
     }
   },
   computed: {
@@ -66,7 +66,7 @@ export default defineComponent({
       return `/turn/${this.turn-1}/bot`
     },
     additionalResourceTrackBenefit() : Benefit|undefined {
-      return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.playerPaySilver),
+      return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.botSilver),
           this.navigationState.botResources.resourceTrackBenefitsClaimed)
     }
   },
@@ -77,7 +77,7 @@ export default defineComponent({
         player: this.navigationState.player,
         botPersistence: {
           cardDeck: this.navigationState.cardDeck.toPersistence(),
-          botResources: addResourceTrack(this.navigationState.botResources, toNumber(this.playerPaySilver))
+          botResources: addResourceTrack(this.navigationState.botResources, toNumber(this.botSilver))
         }
       })
       this.router.push(`/turn/${this.turn+1}/bot`)
