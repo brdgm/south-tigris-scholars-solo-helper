@@ -11,7 +11,7 @@
   </template>
 
   <BotSilver v-model="botSilver"/>
-  <BotBenefit v-if="additionalResourceTrackBenefit" :benefit="additionalResourceTrackBenefit"/>
+  <BotAction v-if="additionalResourceTrackBenefit" :action="additionalResourceTrackBenefit" :navigationState="navigationState"/>
 
   <template v-if="hasMoreActions">
     <button class="btn btn-success btn-lg mt-4 me-2" @click="next()">
@@ -45,7 +45,6 @@ import BotSilver from '@/components/turn/BotSilver.vue'
 import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
 import addResourceTrack from '@/util/addResourceTrack'
 import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
-import BotBenefit from '@/components/turn/BotBenefit.vue'
 import BotAction from '@/components/turn/BotAction.vue'
 import { CardAction } from '@/services/Card'
 import AppIcon from '@/components/structure/AppIcon.vue'
@@ -57,7 +56,6 @@ export default defineComponent({
     SideBar,
     DebugInfo,
     BotSilver,
-    BotBenefit,
     BotAction,
     AppIcon
   },

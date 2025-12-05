@@ -5,7 +5,7 @@
   <p class="mt-4" v-html="t('turnPlayer.execute')"></p>
 
   <BotSilver v-model="botSilver"/>
-  <BotBenefit v-if="additionalResourceTrackBenefit" :benefit="additionalResourceTrackBenefit"/>
+  <BotAction v-if="additionalResourceTrackBenefit" :action="additionalResourceTrackBenefit" :navigationState="navigationState"/>
 
   <button class="btn btn-primary btn-lg mt-4" @click="next">
     {{t('action.next')}}
@@ -30,7 +30,7 @@ import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
 import addResourceTrack from '@/util/addResourceTrack'
 import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
 import { CardAction } from '@/services/Card'
-import BotBenefit from '@/components/turn/BotBenefit.vue'
+import BotAction from '@/components/turn/BotAction.vue'
 
 export default defineComponent({
   name: 'TurnPlayer',
@@ -39,7 +39,7 @@ export default defineComponent({
     SideBar,
     DebugInfo,
     BotSilver,
-    BotBenefit
+    BotAction
   },
   setup() {
     const { t } = useI18n()

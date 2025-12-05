@@ -39,7 +39,7 @@ describe('services/BotActions', () => {
       { action: Action.INFLUENCE_CARD, requireEmployedTranslators: 6, influenceBonus: [Guild.ANY] },
       { action: Action.TRANSLATOR_EMPLOY }
     ])
-    expect(underTest.benefit).to.eql({ action: Action.INFLUENCE, influenceBonus: [Guild.ORANGE] })
+    expect(underTest.benefit).to.eql({ action: Action.INFLUENCE, influenceBonus: [Guild.ORANGE], pageCard: true })
     expect(underTest.newBotResources).to.eql({resourceTrack: 1, resourceTrackBenefitsClaimed:3, diceSum: 1})
     expect(underTest.isRest).to.false
   })

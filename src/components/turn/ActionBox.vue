@@ -20,6 +20,9 @@
       <div class="bonus" v-if="action.travelInfluence">
         <AppIcon type="travel-influence" :name="action.travelInfluence.join('-')" class="icon"/>
       </div>
+      <div class="bonus" v-if="hasBodyOfBooksExpansion && action.pageCard">
+        <AppIcon name="page-card" class="icon"/>
+      </div>
     </div>
     <div class="priority" v-if="hasPriority">
       <slot name="priority"></slot>
@@ -34,6 +37,7 @@
       <p v-if="isInfluence1AnyBonus" v-html="t('rules.action.general.influence1AnyBonus')"/>
       <p v-else-if="action.influenceBonus" v-html="t('rules.action.general.influenceBonus')"/>
       <p v-if="action.silverBonus" v-html="t('rules.action.general.silverBonus')"/>
+      <p v-if="hasBodyOfBooksExpansion && action.pageCard" v-html="t('rules.action.general.pageCard')"/>
     </template>
   </ModalDialog>
 </template>
@@ -47,6 +51,8 @@ import { CardAction } from '@/services/Card'
 import { nanoid } from 'nanoid'
 import { useI18n } from 'vue-i18n'
 import Guild from '@/services/enum/Guild'
+import { useStateStore } from '@/store/state'
+import Expansion from '@/services/enum/Expansion'
 
 export default defineComponent({
   name: 'ActionBox',
@@ -56,8 +62,9 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
+    const state = useStateStore()
     const modalId = `modal-${nanoid()}`
-    return { t, modalId }
+    return { t, state, modalId }
   },
   props: {
     action: {
@@ -82,6 +89,9 @@ export default defineComponent({
     },
     isInfluence1AnyBonus() : boolean {
       return this.action.influenceBonus !== undefined && this.action.influenceBonus.length === 1 && this.action.influenceBonus[0] == Guild.ANY
+    },
+    hasBodyOfBooksExpansion() : boolean {
+      return this.state.setup.expansions.includes(Expansion.BODY_OF_BOOKS)
     }
   },
   methods: {

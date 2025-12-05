@@ -17,4 +17,5 @@ export interface CardAction {
   requireScrollCardsHouseOfWisdom?: number
   travelInfluence?: number[]
   retireTranslator?: number
+  pageCard?: boolean
 }
