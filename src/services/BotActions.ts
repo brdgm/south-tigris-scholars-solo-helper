@@ -5,6 +5,7 @@ import { CardAction } from './Card'
 import Action from './enum/Action'
 import SchemeCardColor from './enum/SchemeCardColor'
 import Guild from './enum/Guild'
+import addDiceSum from '@/util/addDiceSum'
 
 /**
  * Bot actions derived from scheme card deck.
@@ -14,12 +15,15 @@ export default class BotActions {
   public readonly actions : CardAction[]
   public readonly benefit? : CardAction
   public readonly newBotResources : BotResources
+  public readonly colorMajority : SchemeCardColor
   public readonly isRest : boolean
   
-  private constructor(actions : CardAction[], benefit: CardAction|undefined, newBotResources : BotResources, isRest: boolean) {
+  private constructor(actions : CardAction[], benefit: CardAction|undefined, newBotResources : BotResources,
+    colorMajority: SchemeCardColor, isRest: boolean) {
     this.actions = actions
     this.benefit = benefit
     this.newBotResources = newBotResources
+    this.colorMajority = colorMajority
     this.isRest = isRest
   }
 
@@ -27,6 +31,7 @@ export default class BotActions {
     if (cardDeck.isRest) {
       // resting
       const actions : CardAction[] = []
+      actions.push({ action: Action.REST_BOTTOM_CARD })
       switch (cardDeck.discard.length) {
         case 3:
           actions.push({ action: Action.INFLUENCE_CARD, influenceBonus: [Guild.ANY] })
@@ -39,8 +44,10 @@ export default class BotActions {
             retireTranslator: cardDeck.colorMajority == SchemeCardColor.BLUE ? 6 : 7 })
           break
       }
+      const colorMajority = cardDeck.colorMajority
+      const diceSumModifier = colorMajority == SchemeCardColor.BLUE ? 1 : -1
       cardDeck.shuffle()
-      return new BotActions(actions, undefined, botResources, true)
+      return new BotActions(actions, undefined, addDiceSum(botResources, diceSumModifier), colorMajority, true)
     }
     else {
       // draw card
@@ -66,7 +73,7 @@ export default class BotActions {
         resourceTrack: newResourceTrack,
         resourceTrackBenefitsClaimed,
         diceSum: botResources.diceSum,
-      }, false)
+      }, cardDeck.colorMajority, false)
     }
   }
 

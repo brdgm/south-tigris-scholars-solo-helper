@@ -146,6 +146,10 @@
       },
       "influence": {
         "title": "Influence"
+      },
+      "restBottomCard": {
+        "title": "Draw Bottom Card",
+        "instruction": "Reveal the bottom Card from the Scroll Card Draw Pile and resolve just as you would when you Rest."
       }
     }
   },

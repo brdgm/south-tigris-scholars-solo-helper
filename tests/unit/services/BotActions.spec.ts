@@ -49,10 +49,11 @@ describe('services/BotActions', () => {
     const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
 
     expect(underTest.actions).to.eql([
+      { action: Action.REST_BOTTOM_CARD },
       { action: Action.INFLUENCE_CARD, influenceBonus: [Guild.ANY] }
     ])
     expect(underTest.benefit).to.undefined
-    expect(underTest.newBotResources).to.eql({resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
+    expect(underTest.newBotResources).to.eql({resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 2})
     expect(underTest.isRest).to.true
   })
 
@@ -61,10 +62,11 @@ describe('services/BotActions', () => {
     const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
 
     expect(underTest.actions).to.eql([
+      { action: Action.REST_BOTTOM_CARD },
       { action: Action.INFLUENCE_CARD }
     ])
     expect(underTest.benefit).to.undefined
-    expect(underTest.newBotResources).to.eql({resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
+    expect(underTest.newBotResources).to.eql({resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 2})
     expect(underTest.isRest).to.true
   })
 
@@ -73,10 +75,11 @@ describe('services/BotActions', () => {
     const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
 
     expect(underTest.actions).to.eql([
+      { action: Action.REST_BOTTOM_CARD },
       { action: Action.TRANSLATOR_RETIRE, retireTranslator: 6 }
     ])
     expect(underTest.benefit).to.undefined
-    expect(underTest.newBotResources).to.eql({resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
+    expect(underTest.newBotResources).to.eql({resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 2})
     expect(underTest.isRest).to.true
   })
 })

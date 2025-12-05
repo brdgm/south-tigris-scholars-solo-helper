@@ -5,6 +5,7 @@
       <b>currentCard</b>: {{cardDeck.currentCard}}<br/>
       <b>cardDeck</b>: {{cardDeck.toPersistence()}}<br/>
       <b>botResources</b>: {{navigationState.botResources}}<br/>
+      <b>colorMajority</b>: {{navigationState.botActions?.colorMajority ?? cardDeck.colorMajority}}, <b>isRest</b>: {{isRest}}<br/>
     </p>
   </div>
 </template>
@@ -32,6 +33,9 @@ export default defineComponent({
   computed: {
     cardDeck() : CardDeck {
       return this.navigationState.cardDeck
+    },
+    isRest() : boolean {
+      return this.navigationState.botActions?.isRest ?? false
     }
   }
 })

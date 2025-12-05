@@ -6,7 +6,12 @@
   </h1>
 
   <template v-if="botActions">
-    <BotAction :action="currentAction" :navigationState="navigationState"/>
+    <template v-if="isRest">
+      <BotAction v-for="(action,index) of allActions" :key="index" :action="action" :navigationState="navigationState"/>
+    </template>
+    <template v-else>
+      <BotAction :action="currentAction" :navigationState="navigationState"/>
+    </template>
     <BotAction v-if="botActions.benefit" :action="botActions.benefit" :navigationState="navigationState"/>
   </template>
 
@@ -79,6 +84,9 @@ export default defineComponent({
     backButtonRouteTo() : string {
       return `/turn/${this.turn-1}/player`
     },
+    isRest() : boolean {
+      return this.botActions?.isRest ?? false
+    },
     allActions() : CardAction[] {
       return this.botActions?.actions ?? []
     },
@@ -86,7 +94,7 @@ export default defineComponent({
       return this.allActions[this.action]
     },
     hasMoreActions() : boolean {
-      return this.allActions.length > this.action + 1
+      return this.allActions.length > this.action + 1 && !this.isRest
     },
     additionalResourceTrackBenefit() : CardAction|undefined {
       return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.botSilver),

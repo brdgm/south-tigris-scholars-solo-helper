@@ -57,7 +57,7 @@ export default class CardDeck {
     if (blueCount > redCount) {
       return SchemeCardColor.BLUE
     }
-    return this._discard.value[0].color ?? SchemeCardColor.BLUE
+    return this._discard.value[0]?.color ?? SchemeCardColor.BLUE
   }
 
   private getCardColorCount(color : SchemeCardColor) : number {

@@ -16,6 +16,7 @@ import ActionTravel from './action/ActionTravel.vue'
 import ActionInfluenceCard from './action/ActionInfluenceCard.vue'
 import ActionInfluence from './action/ActionInfluence.vue'
 import NavigationState from '@/util/NavigationState'
+import ActionRestBottomCard from './action/ActionRestBottomCard.vue'
 
 export default defineComponent({
   name: 'BotAction',
@@ -26,7 +27,8 @@ export default defineComponent({
     ActionTranslate,
     ActionTravel,
     ActionInfluence,
-    ActionInfluenceCard
+    ActionInfluenceCard,
+    ActionRestBottomCard
   },
   setup() {
     const { t } = useI18n()

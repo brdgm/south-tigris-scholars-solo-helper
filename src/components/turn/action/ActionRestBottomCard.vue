@@ -1,10 +1,13 @@
 <template>
-  <ActionBox :action="action" :instruction-title="t('rules.action.influence.title')">
+  <ActionBox :action="action" :instruction-title="t('rules.action.restBottomCard.title')">
     <template #action>
       <div class="action">
+        <AppIcon name="rest" class="icon"/>
+        <div>{{t('rules.action.restBottomCard.title')}}</div>
       </div>
     </template>
     <template #instruction>
+      <p v-html="t('rules.action.restBottomCard.instruction')"/>
     </template>
   </ActionBox>
 </template>
@@ -15,12 +18,14 @@ import { useI18n } from 'vue-i18n'
 import { CardAction } from '@/services/Card'
 import ActionBox from '../ActionBox.vue'
 import NavigationState from '@/util/NavigationState'
+import AppIcon from '@/components/structure/AppIcon.vue'
 
 export default defineComponent({
-  name: 'ActionInfluence',
+  name: 'ActionRestBottomCard',
   inheritAttrs: false,
   components: {
-    ActionBox
+    ActionBox,
+    AppIcon
   },
   setup() {
     const { t } = useI18n()
@@ -46,5 +51,8 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+.icon {
+  height: 2rem;
 }
 </style>

@@ -60,4 +60,9 @@ describe('services/CardDeck', () => {
     expect(deck.discard.length, 'discard').to.eq(0)
   })
 
+
+  it('colorMajority-emptyDiscard', () => {
+    const deck = CardDeck.fromPersistence({pile: [5,6,3], discard: []})
+    expect(deck.colorMajority).to.eq(SchemeCardColor.BLUE)
+  })
 })
