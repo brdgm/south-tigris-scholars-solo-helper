@@ -54,9 +54,5 @@ export default defineComponent({
 .actionItem {
   margin-top: 15px;
   max-width: 35rem;
-  padding-right: 10rem;
-  @media (max-width: 600px) {
-    padding-right: 8rem;
-  }
 }
 </style>
