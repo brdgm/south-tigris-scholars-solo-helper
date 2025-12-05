@@ -74,7 +74,7 @@ export default defineComponent({
   },
   data() {
     return {
-      botSilver: 0
+      botSilver: undefined as number|undefined
     }
   },
   computed: {

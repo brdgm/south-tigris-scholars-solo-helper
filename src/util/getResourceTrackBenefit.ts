@@ -10,8 +10,9 @@ import Guild from '@/services/enum/Guild'
  * @returns Resource track benefit
  */
 export default function getResourceTrackBenefit(resourceTrack: number, resourceTrackAdd: number, resourceTrackBenefitsClaimed: number) : CardAction|undefined {
-  const newResourceTrack = resourceTrack + resourceTrackAdd
-  if (resourceTrack < 6 && newResourceTrack >= 6) {
+  const oldReachedCount = getBenefitReachedCount(resourceTrack)
+  const newReachedCount = getBenefitReachedCount(resourceTrack + resourceTrackAdd)
+  if (newReachedCount > oldReachedCount) {
     switch (resourceTrackBenefitsClaimed) {
       case 0:
         return { action: Action.INFLUENCE, influenceBonus: [Guild.PURPLE] }
@@ -30,4 +31,8 @@ export default function getResourceTrackBenefit(resourceTrack: number, resourceT
   else {
     return undefined
   }
+}
+
+function getBenefitReachedCount(resourceTrack: number) : number {
+  return Math.floor(resourceTrack / 6)
 }

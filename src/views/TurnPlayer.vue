@@ -5,10 +5,7 @@
   <p class="mt-4" v-html="t('turnPlayer.execute')"></p>
 
   <BotSilver v-model="botSilver"/>
-
-  <div v-if="additionalResourceTrackBenefit" class="mt-3">
-    [{{additionalResourceTrackBenefit}}]
-  </div>
+  <BotBenefit v-if="additionalResourceTrackBenefit" :benefit="additionalResourceTrackBenefit"/>
 
   <button class="btn btn-primary btn-lg mt-4" @click="next">
     {{t('action.next')}}
@@ -29,10 +26,11 @@ import { useStateStore } from '@/store/state'
 import SideBar from '@/components/turn/SideBar.vue'
 import DebugInfo from '@/components/turn/DebugInfo.vue'
 import BotSilver from '@/components/turn/BotSilver.vue'
-import Benefit from '@/services/enum/Benefit'
 import getResourceTrackBenefit from '@/util/getResourceTrackBenefit'
 import addResourceTrack from '@/util/addResourceTrack'
 import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
+import { CardAction } from '@/services/Card'
+import BotBenefit from '@/components/turn/BotBenefit.vue'
 
 export default defineComponent({
   name: 'TurnPlayer',
@@ -40,7 +38,8 @@ export default defineComponent({
     FooterButtons,
     SideBar,
     DebugInfo,
-    BotSilver
+    BotSilver,
+    BotBenefit
   },
   setup() {
     const { t } = useI18n()
@@ -55,7 +54,7 @@ export default defineComponent({
   },
   data() {
     return {
-      botSilver: 0
+      botSilver: undefined as number|undefined
     }
   },
   computed: {
@@ -65,7 +64,7 @@ export default defineComponent({
       }
       return `/turn/${this.turn-1}/bot`
     },
-    additionalResourceTrackBenefit() : Benefit|undefined {
+    additionalResourceTrackBenefit() : CardAction|undefined {
       return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.botSilver),
           this.navigationState.botResources.resourceTrackBenefitsClaimed)
     }
