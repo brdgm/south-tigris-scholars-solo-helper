@@ -23,6 +23,10 @@
       <div class="bonus" v-if="hasBodyOfBooksExpansion && action.pageCard">
         <AppIcon name="page-card" class="icon"/>
       </div>
+      <div class="bonus" v-if="action.diceSumModifier">
+        <AppIcon v-if="action.diceSumModifier > 0" type="dice-sum" name="add" class="icon"/>
+        <AppIcon v-if="action.diceSumModifier < 0" type="dice-sum" name="subtract" class="icon"/>
+      </div>
     </div>
     <div class="priority" v-if="hasPriority">
       <slot name="priority"></slot>
@@ -38,6 +42,8 @@
       <p v-else-if="action.influenceBonus" v-html="t('rules.action.general.influenceBonus')"/>
       <p v-if="action.silverBonus" v-html="t('rules.action.general.silverBonus')"/>
       <p v-if="hasBodyOfBooksExpansion && action.pageCard" v-html="t('rules.action.general.pageCard')"/>
+      <p v-if="(action.diceSumModifier ?? 0) > 0" v-html="t('rules.action.general.diceSumAdd')"/>
+      <p v-if="(action.diceSumModifier ?? 0) < 0" v-html="t('rules.action.general.diceSumSubtract')"/>
     </template>
   </ModalDialog>
 </template>

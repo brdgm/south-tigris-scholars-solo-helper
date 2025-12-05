@@ -25,7 +25,10 @@
       <div class="label"><AppIcon name="scheme-cards-red" class="icon cards"/></div>
       <div>{{ cardDeck.discardRedCount }}</div>
     </div>
+    <button class="btn btn-sm btn-secondary mt-3" data-bs-toggle="modal" data-bs-target="#caliphCardModal">{{t('rules.caliphCard.title')}}</button>
   </div>
+
+  <CaliphCardModal :navigationState="navigationState" @caliphActions="actions => $emit('caliphActions', actions)" @caliphOptionsRemove="$emit('caliphOptionsRemove')"/>
 </template>
 
 <script lang="ts">
@@ -35,11 +38,18 @@ import { useStateStore } from '@/store/state'
 import NavigationState from '@/util/NavigationState'
 import CardDeck from '@/services/CardDeck'
 import AppIcon from '../structure/AppIcon.vue'
+import CaliphCardModal from './CaliphCardModal.vue'
+import { CardAction } from '@/services/Card'
 
 export default defineComponent({
   name: 'SideBar',
+  emits: {
+    caliphActions: (_actions: CardAction[]) => true,  // eslint-disable-line @typescript-eslint/no-unused-vars
+    caliphOptionsRemove: () => true
+  },
   components: {
-    AppIcon
+    AppIcon,
+    CaliphCardModal
   },
   setup() {
     const { t } = useI18n()

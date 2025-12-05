@@ -18,4 +18,5 @@ export interface CardAction {
   travelInfluence?: number[]
   retireTranslator?: number
   pageCard?: boolean
+  diceSumModifier?: number
 }

@@ -31,7 +31,9 @@ export default class BotActions {
     if (cardDeck.isRest) {
       // resting
       const actions : CardAction[] = []
-      actions.push({ action: Action.REST_BOTTOM_CARD })
+      const colorMajority = cardDeck.colorMajority
+      const diceSumModifier = colorMajority == SchemeCardColor.BLUE ? 1 : -1
+      actions.push({ action: Action.REST_BOTTOM_CARD, diceSumModifier })
       switch (cardDeck.discard.length) {
         case 3:
           actions.push({ action: Action.INFLUENCE_CARD, influenceBonus: [Guild.ANY] })
@@ -44,8 +46,6 @@ export default class BotActions {
             retireTranslator: cardDeck.colorMajority == SchemeCardColor.BLUE ? 6 : 7 })
           break
       }
-      const colorMajority = cardDeck.colorMajority
-      const diceSumModifier = colorMajority == SchemeCardColor.BLUE ? 1 : -1
       cardDeck.shuffle()
       return new BotActions(actions, undefined, addDiceSum(botResources, diceSumModifier), colorMajority, true)
     }

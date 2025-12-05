@@ -3,7 +3,7 @@
     <template #action>
       <div class="action">
         <AppIcon name="rest" class="icon"/>
-        <div>{{t('rules.action.restBottomCard.title')}}</div>
+        <div class="fw-bold">{{t('rules.action.restBottomCard.title')}}</div>
       </div>
     </template>
     <template #instruction>

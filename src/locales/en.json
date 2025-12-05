@@ -99,7 +99,9 @@
         "influence1AnyBonus": "The AI places influence on a Guild. They will focus on a Guild where no players have any Influence. If there are multiple options available, they will decide between those options by selecting the Guild where they have no Influence. If there are still multiple options, they will decide between those options using their colour focus.",
         "influenceBonus": "The AI places the indicated influence on a Guild.",
         "silverBonus": "The AI gains the indicated amount of silver <i>(managed by the application)</i>.",
-        "pageCard": "The AI gains a Page Card. From the Main Board Extension, choose the Page Card with the highest VP, and marked with one of their Research Markers. If tied, take the highest, then the left-most Page Card. Discard the Research Marker below it."
+        "pageCard": "The AI gains a Page Card. From the Main Board Extension, choose the Page Card with the highest VP, and marked with one of their Research Markers. If tied, take the highest, then the left-most Page Card. Discard the Research Marker below it.",
+        "diceSumAdd": "The AI adds 1 to their Dice Sum <i>(managed by the application)</i>.",
+        "diceSumSubtract": "The AI subtracts 1 from their Dice Sum <i>(managed by the application)</i>."
       },
       "influenceCard": {
         "title": "Influence Card",
@@ -142,15 +144,26 @@
       },
       "translatorRetire": {
         "title": "Retire Translator",
-        "instruction": "The AI retires the pictured Translator from the top section of the Main Board."
+        "instruction": "The AI retires the pictured Translator from the top section of the Main Board.",
+        "highestVP": "The AI retires Translator with the hightest VP from the top section of the Main Board. If tied, choose the left-most Translator with the highest VP."
       },
       "influence": {
         "title": "Influence"
+      },
+      "silver": {
+        "title": "Silver"
       },
       "restBottomCard": {
         "title": "Draw Bottom Card",
         "instruction": "Reveal the bottom Card from the Scroll Card Draw Pile and resolve just as you would when you Rest."
       }
+    },
+    "caliphCard": {
+      "title": "Caliph Card",
+      "guildControl": "When your opponents controls a guild, and needs to select an option on a Caliph Card, check the selected option (the red numbers show his preference):",
+      "consolation": "Check if your opponent gains any consolation reward:",
+      "apply": "Apply",
+      "remove": "Remove"
     }
   },
   "notfound": {

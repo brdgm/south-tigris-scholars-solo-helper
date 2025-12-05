@@ -1,14 +1,10 @@
 <template>
-  <ActionBox :action="action" :instruction-title="t('rules.action.translatorRetire.title')">
+  <ActionBox :action="action" :instruction-title="t('rules.action.silver.title')">
     <template #action>
       <div class="action">
-        <AppIcon v-if="action.retireTranslator" type="translator" :name="`${action.retireTranslator}`" extension="webp" class="icon translator"/>
-        <AppIcon type="action" :name="action.action" class="icon"/>
       </div>
     </template>
     <template #instruction>
-      <p v-if="action.retireTranslator" v-html="t('rules.action.translatorRetire.instruction')"/>
-      <p v-else v-html="t('rules.action.translatorRetire.highestVP')"/>
     </template>
   </ActionBox>
 </template>
@@ -18,15 +14,13 @@ import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { CardAction } from '@/services/Card'
 import ActionBox from '../ActionBox.vue'
-import AppIcon from '@/components/structure/AppIcon.vue'
 import NavigationState from '@/util/NavigationState'
 
 export default defineComponent({
-  name: 'ActionTranslatorRetire',
+  name: 'ActionSilver',
   inheritAttrs: false,
   components: {
-    ActionBox,
-    AppIcon
+    ActionBox
   },
   setup() {
     const { t } = useI18n()
@@ -52,18 +46,5 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   gap: 10px;
-}
-.icon {
-  height: 3rem;
-  z-index: 10;
-  &.translator {
-    margin-right: -1.75rem;
-    margin-bottom: 0.5rem;
-    z-index: 5;
-    filter: drop-shadow(1px 0 0 white)
-      drop-shadow(-1px 0 0 white)
-      drop-shadow(0 1px 0 white)
-      drop-shadow(0 -1px 0 white);
-  }
 }
 </style>

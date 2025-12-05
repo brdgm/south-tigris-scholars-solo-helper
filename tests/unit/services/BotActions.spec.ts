@@ -49,7 +49,7 @@ describe('services/BotActions', () => {
     const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
 
     expect(underTest.actions).to.eql([
-      { action: Action.REST_BOTTOM_CARD },
+      { action: Action.REST_BOTTOM_CARD, diceSumModifier: 1 },
       { action: Action.INFLUENCE_CARD, influenceBonus: [Guild.ANY] }
     ])
     expect(underTest.benefit).to.undefined
@@ -62,7 +62,7 @@ describe('services/BotActions', () => {
     const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
 
     expect(underTest.actions).to.eql([
-      { action: Action.REST_BOTTOM_CARD },
+      { action: Action.REST_BOTTOM_CARD, diceSumModifier: 1 },
       { action: Action.INFLUENCE_CARD }
     ])
     expect(underTest.benefit).to.undefined
@@ -75,7 +75,7 @@ describe('services/BotActions', () => {
     const underTest = BotActions.drawCard(deck, {resourceTrack: 5, resourceTrackBenefitsClaimed:2, diceSum: 1})
 
     expect(underTest.actions).to.eql([
-      { action: Action.REST_BOTTOM_CARD },
+      { action: Action.REST_BOTTOM_CARD, diceSumModifier: 1 },
       { action: Action.TRANSLATOR_RETIRE, retireTranslator: 6 }
     ])
     expect(underTest.benefit).to.undefined

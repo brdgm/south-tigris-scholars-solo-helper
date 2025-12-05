@@ -17,6 +17,7 @@ import ActionInfluenceCard from './action/ActionInfluenceCard.vue'
 import ActionInfluence from './action/ActionInfluence.vue'
 import NavigationState from '@/util/NavigationState'
 import ActionRestBottomCard from './action/ActionRestBottomCard.vue'
+import ActionSilver from './action/ActionSilver.vue'
 
 export default defineComponent({
   name: 'BotAction',
@@ -27,6 +28,7 @@ export default defineComponent({
     ActionTranslate,
     ActionTravel,
     ActionInfluence,
+    ActionSilver,
     ActionInfluenceCard,
     ActionRestBottomCard
   },

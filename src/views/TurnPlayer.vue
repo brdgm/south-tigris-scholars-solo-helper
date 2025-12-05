@@ -1,11 +1,12 @@
 <template>
-  <SideBar :navigationState="navigationState"/>
+  <SideBar :navigationState="navigationState" @caliphActions="actions => caliphActions.push(...actions)" @caliphOptionsRemove="caliphActions=[]"/>
   <h1>{{t('turnPlayer.title')}}</h1>
 
   <p class="mt-4" v-html="t('turnPlayer.execute')"></p>
 
   <BotSilver v-model="botSilver"/>
   <BotAction v-if="additionalResourceTrackBenefit" :action="additionalResourceTrackBenefit" :navigationState="navigationState"/>
+  <BotAction v-for="(action, index) in caliphActions" :key="index" :action="action" :navigationState="navigationState"/>
 
   <button class="btn btn-primary btn-lg mt-4" @click="next">
     {{t('action.next')}}
@@ -31,6 +32,7 @@ import addResourceTrack from '@/util/addResourceTrack'
 import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
 import { CardAction } from '@/services/Card'
 import BotAction from '@/components/turn/BotAction.vue'
+import addDiceSum from '@/util/addDiceSum'
 
 export default defineComponent({
   name: 'TurnPlayer',
@@ -54,7 +56,8 @@ export default defineComponent({
   },
   data() {
     return {
-      botSilver: undefined as number|undefined
+      botSilver: undefined as number|undefined,
+      caliphActions: [] as CardAction[]
     }
   },
   computed: {
@@ -67,6 +70,12 @@ export default defineComponent({
     additionalResourceTrackBenefit() : CardAction|undefined {
       return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.botSilver),
           this.navigationState.botResources.resourceTrackBenefitsClaimed)
+    },
+    caliphActionsSilverBonus() : number {
+      return this.caliphActions.reduce((sum, action) => sum + (action.silverBonus ?? 0), 0)
+    },
+    caliphActionsDiceSumModifier() : number {
+      return this.caliphActions.reduce((sum, action) => sum + (action.diceSumModifier ?? 0), 0)
     }
   },
   methods: {
@@ -76,7 +85,7 @@ export default defineComponent({
         player: this.navigationState.player,
         botPersistence: {
           cardDeck: this.navigationState.cardDeck.toPersistence(),
-          botResources: addResourceTrack(this.navigationState.botResources, toNumber(this.botSilver))
+          botResources: addDiceSum(addResourceTrack(this.navigationState.botResources, toNumber(this.botSilver) + this.caliphActionsSilverBonus), this.caliphActionsDiceSumModifier)
         }
       })
       this.router.push(`/turn/${this.turn+1}/bot`)

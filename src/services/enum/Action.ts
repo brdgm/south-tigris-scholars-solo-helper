@@ -9,6 +9,7 @@ enum Action {
   TRAVEL = 'travel',
   INFLUENCE = 'influence',
   INFLUENCE_CARD = 'influence-card',
+  SILVER = 'silver',
   REST_BOTTOM_CARD = 'rest-bottom-card'
 }
 export default Action

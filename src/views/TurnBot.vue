@@ -1,5 +1,5 @@
 <template>
-  <SideBar :navigationState="navigationState"/>
+  <SideBar :navigationState="navigationState" @caliphActions="actions => caliphActions=actions" @caliphOptionsRemove="caliphActions=[]"/>
   <h1>
     {{t('turnBot.title')}}
     <AppIcon v-if="botActions?.isRest" name="rest" class="restIcon"/>
@@ -7,12 +7,20 @@
 
   <template v-if="botActions">
     <template v-if="isRest">
-      <BotAction v-for="(action,index) of allActions" :key="index" :action="action" :navigationState="navigationState"/>
+      <template v-for="(action,index) of allActions" :key="index">
+        <BotAction :action="action" :navigationState="navigationState"/>
+        <template v-if="isRestAction(action)">
+          <BotAction v-for="(action, index) in caliphActions" :key="index" :action="action" :navigationState="navigationState"/>
+        </template>
+      </template>
     </template>
     <template v-else>
       <BotAction :action="currentAction" :navigationState="navigationState"/>
     </template>
     <BotAction v-if="botActions.benefit" :action="botActions.benefit" :navigationState="navigationState"/>
+  </template>
+  <template v-if="!isRest">
+    <BotAction v-for="(action, index) in caliphActions" :key="index" :action="action" :navigationState="navigationState"/>
   </template>
 
   <BotSilver v-model="botSilver"/>
@@ -53,6 +61,8 @@ import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
 import BotAction from '@/components/turn/BotAction.vue'
 import { CardAction } from '@/services/Card'
 import AppIcon from '@/components/structure/AppIcon.vue'
+import addDiceSum from '@/util/addDiceSum'
+import Action from '@/services/enum/Action'
 
 export default defineComponent({
   name: 'TurnBot',
@@ -77,7 +87,8 @@ export default defineComponent({
   },
   data() {
     return {
-      botSilver: undefined as number|undefined
+      botSilver: undefined as number|undefined,
+      caliphActions: [] as CardAction[]
     }
   },
   computed: {
@@ -99,6 +110,18 @@ export default defineComponent({
     additionalResourceTrackBenefit() : CardAction|undefined {
       return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.botSilver),
           this.navigationState.botResources.resourceTrackBenefitsClaimed)
+    },
+    currentActionSilverBonus() : number {
+      if (this.isRest) {
+        return this.allActions.reduce((sum, action) => sum + (action.silverBonus ?? 0), 0)
+      }
+      return this.currentAction.silverBonus ?? 0
+    },
+    caliphActionsSilverBonus() : number {
+      return this.caliphActions.reduce((sum, action) => sum + (action.silverBonus ?? 0), 0)
+    },
+    caliphActionsDiceSumModifier() : number {
+      return this.caliphActions.reduce((sum, action) => sum + (action.diceSumModifier ?? 0), 0)
     }
   },
   methods: {
@@ -111,10 +134,13 @@ export default defineComponent({
         player: this.navigationState.player,
         botPersistence: {
           cardDeck: this.navigationState.cardDeck.toPersistence(),
-          botResources: addResourceTrack(this.navigationState.botResources, toNumber(this.botSilver) + (this.currentAction.silverBonus ?? 0))
+          botResources: addDiceSum(addResourceTrack(this.navigationState.botResources, toNumber(this.botSilver) + this.currentActionSilverBonus + this.caliphActionsSilverBonus), this.caliphActionsDiceSumModifier),
         }
       })
       this.router.push(`/turn/${this.turn+1}/player`)
+    },
+    isRestAction(action: CardAction) : boolean {
+      return action.action == Action.REST_BOTTOM_CARD
     }
   }
 })
