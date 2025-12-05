@@ -1,5 +1,5 @@
 <template>
-  <div class="actionBox col" :class="{'instruction': hasInstruction}" @click="showInstructions">
+  <div class="actionBox" :class="{'instruction': hasInstruction}" @click="showInstructions">
     <div class="actionWrapper">
       <div class="cost" v-if="action.requireEmployedTranslators">
         <AppIcon type="require" :name="`employed-translators-${action.requireEmployedTranslators}`" class="icon"/>
