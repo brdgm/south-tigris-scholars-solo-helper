@@ -121,7 +121,7 @@
       },
       "translate": {
         "title": "Translate",
-        "translate": "The AI will translate a scroll form the House of Wisdom:",
+        "translate": "The AI will translate a scroll from the House of Wisdom:",
         "languageFocus": "Use their language focus to select a scroll card.",
         "lowestRow": "If there are multiple options available, they will decide between those options by selecting the Scroll Card that is in the lowest row in the House of Wisdom.",
         "guildFocus": "If there are still multiple options, they will decide between those options using their colour focus.",
@@ -136,7 +136,7 @@
       },
       "travel": {
         "title": "Deliver a Scroll Card",
-        "deliverScroll": "They deliver a Scroll form the Map:",
+        "deliverScroll": "They deliver a Scroll from the Map:",
         "languageFocus": "Use their language focus, looking clockwise around the Map, starting from the Neutral Marker.",
         "neutralMarkRelation": "While they do not move the Neutral Marker, they act as if they would have, just like you moving your Player Marker. As such, they won’t target the Scroll Card adjacent to the Neutral Marker, unless they do a full loop around the Map.",
         "placeCard": "When Delivering their chosen Scroll Card, they will aim to place it into the highest row in the House of Wisdom. If there are multiple options available, they will decide between those options using their colour focus.",
@@ -156,7 +156,7 @@
       "translatorRetire": {
         "title": "Retire Translator",
         "instruction": "The AI retires the pictured Translator from the top section of the Main Board.",
-        "highestVP": "The AI retires Translator with the hightest VP from the top section of the Main Board. If tied, choose the left-most Translator with the highest VP."
+        "highestVP": "The AI retires Translator with the highest VP from the top section of the Main Board. If tied, choose the left-most Translator with the highest VP."
       },
       "influence": {
         "title": "Influence"
