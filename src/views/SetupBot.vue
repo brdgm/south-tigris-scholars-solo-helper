@@ -32,6 +32,7 @@
             <li v-html="t('setupBot.ruleChanges.influenceCard.letThem')"></li>
             <li v-html="t('setupBot.ruleChanges.influenceCard.denyThem')"></li>
           </ul>
+          <li v-if="hasBodyOfBooksExpansion" v-html="t('setupBot.ruleChanges.upgradedActionCards')"></li>
         </ul>
       </div>
     </div>
