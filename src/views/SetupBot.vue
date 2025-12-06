@@ -19,6 +19,24 @@
     <p v-html="t('setupBot.instructions.noSchemeCards')"></p>
   </div>
 
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col alert alert-primary">
+        <h4>{{t('setupBot.ruleChanges.title')}}</h4>
+        <ul>
+          <li v-html="t('setupBot.ruleChanges.neutralTranslators')"></li>
+          <li v-html="t('setupBot.ruleChanges.retireNeutralTranslators')"></li>
+          <li v-html="t('setupBot.ruleChanges.scrollCardIcons')"></li>
+          <li v-html="t('setupBot.ruleChanges.influenceCard.title')"></li>
+          <ul>
+            <li v-html="t('setupBot.ruleChanges.influenceCard.letThem')"></li>
+            <li v-html="t('setupBot.ruleChanges.influenceCard.denyThem')"></li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <button class="btn btn-primary btn-lg mt-4" @click="startGame()">
     {{t('action.startGame')}}
   </button>

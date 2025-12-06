@@ -38,12 +38,24 @@
       <p v-if="action.requireEmployedTranslators" v-html="t('rules.action.general.requireEmployedTranslators', {count:action.requireEmployedTranslators})"/>
       <p v-if="action.requireScrollCardsHouseOfWisdom" v-html="t('rules.action.general.requireScrollCardsHouseOfWisdom', {count:action.requireScrollCardsHouseOfWisdom})"/>
       <slot name="instruction"></slot>
-      <p v-if="isInfluence1AnyBonus" v-html="t('rules.action.general.influence1AnyBonus')"/>
-      <p v-else-if="action.influenceBonus" v-html="t('rules.action.general.influenceBonus')"/>
-      <p v-if="action.silverBonus" v-html="t('rules.action.general.silverBonus')"/>
-      <p v-if="hasBodyOfBooksExpansion && action.pageCard" v-html="t('rules.action.general.pageCard')"/>
-      <p v-if="(action.diceSumModifier ?? 0) > 0" v-html="t('rules.action.general.diceSumAdd')"/>
-      <p v-if="(action.diceSumModifier ?? 0) < 0" v-html="t('rules.action.general.diceSumSubtract')"/>
+      <template v-if="isInfluence1AnyBonus || action.influenceBonus">
+        <hr/>
+        <p v-if="isInfluence1AnyBonus" v-html="t('rules.action.general.influence1AnyBonus')"/>
+        <p v-else-if="action.influenceBonus" v-html="t('rules.action.general.influenceBonus')"/>
+      </template>
+      <template v-if="action.silverBonus">
+        <hr/>
+        <p v-html="t('rules.action.general.silverBonus')"/>
+      </template>
+      <template v-if="hasBodyOfBooksExpansion && action.pageCard">
+        <hr/>
+        <p v-html="t('rules.action.general.pageCard')"/>
+      </template>
+      <template v-if="action.diceSumModifier">
+        <hr/>
+        <p v-if="(action.diceSumModifier ?? 0) > 0" v-html="t('rules.action.general.diceSumAdd')"/>
+        <p v-if="(action.diceSumModifier ?? 0) < 0" v-html="t('rules.action.general.diceSumSubtract')"/>
+      </template>
     </template>
   </ModalDialog>
 </template>
@@ -174,5 +186,8 @@ export default defineComponent({
     margin-top: 1rem;
     gap: 0.5rem;
   }
+}
+.modal hr:first-child {
+  display: none;
 }
 </style>

@@ -34,13 +34,24 @@
       "noSchemeCards": "The AI does not need the action cards or scheme cards - the scheme card deck and the \"Dice Sum\" track is managed by this application.",
       "xpFirstCaliphSpace": "Place only 1 XP on the first Caliph Card space.",
       "firstPlayerMarker": "Give yourself the First Player Marker. You can play either the Casual or Epic version of the game.",
-      "noFurtherSetup": "Do not give your opponent any other player components. They do not select a Starting Translator or Resource Card. Instead, all Neutral Translators belong to your opponent, but there is no need to place Influence on them."
+      "noFurtherSetup": "Do not give your opponent any other player components. They do not select a Starting Translator or Resource Card."
+    },
+    "ruleChanges": {
+      "title": "Rule Changes",
+      "neutralTranslators": "All <b>Neutral Translators</b> belong to your opponent, there is no need to place Influence on them.",
+      "retireNeutralTranslators": "When Neutral Translators <b>Retire</b>, place them in a pile nearby the Solo Board.",
+      "scrollCardIcons": "The AI <b>ignores all Icons</b> on Scroll Cards.",
+      "influenceCard": {
+        "title": "<b>Influence on Cards</b>: If the AI has an Influence on a Card that you want to interact with, you still need to pay them - enter the amount in the app on the current screen. If the AI wants to interact with a Card that you have an Influence on, you have a choice:",
+        "letThem": "Let them interact and gain 1 Silver from the Main Supply.",
+        "denyThem": "Deny them. You may pay 1 Silver to have them move to the available Scroll Card. You can do this multiple times, so long as you can afford to. However, you can never fully deny them the action."
+      }
     }
   },
   "turnPlayer": {
     "title": "Player",
     "execute": "Execute you turn.",
-    "botSilver": "Silver gained by the AI:"
+    "botSilver": "Silver you pay to the AI:"
   },
   "turnBot": {
     "title": "AI",
