@@ -110,7 +110,7 @@
         "requireScrollCardsHouseOfWisdom": "The action can only be executed, if there are at least {count} Scrolls Cards in the House of Wisdom.",
         "influence1AnyBonus": "The AI places influence on a Guild. They will focus on a Guild where no players have any Influence. If there are multiple options available, they will decide between those options by selecting the Guild where they have no Influence. If there are still multiple options, they will decide between those options using their colour focus.",
         "influenceBonus": "The AI places the indicated influence on a Guild.",
-        "silverBonus": "The AI gains the indicated amount of silver <i>(managed by the application)</i>.",
+        "silverBonus": "The AI moves the Resource Track marker the indicated amount of steps <i>(managed by the application)</i>.",
         "pageCard": "The AI gains a Page Card. From the Main Board Extension, choose the Page Card with the highest VP, and marked with one of their Research Markers. If tied, take the highest, then the left-most Page Card. Discard the Research Marker below it.",
         "diceSumAdd": "The AI adds 1 to their Dice Sum <i>(managed by the application)</i>.",
         "diceSumSubtract": "The AI subtracts 1 from their Dice Sum <i>(managed by the application)</i>."
