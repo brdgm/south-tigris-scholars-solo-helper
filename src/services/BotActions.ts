@@ -16,14 +16,16 @@ export default class BotActions {
   public readonly benefit? : CardAction
   public readonly newBotResources : BotResources
   public readonly colorMajority : SchemeCardColor
+  public readonly silverValueSum : number
   public readonly isRest : boolean
   
   private constructor(actions : CardAction[], benefit: CardAction|undefined, newBotResources : BotResources,
-    colorMajority: SchemeCardColor, isRest: boolean) {
+    colorMajority: SchemeCardColor, silverValueSum: number, isRest: boolean) {
     this.actions = actions
     this.benefit = benefit
     this.newBotResources = newBotResources
     this.colorMajority = colorMajority
+    this.silverValueSum = silverValueSum
     this.isRest = isRest
   }
 
@@ -46,8 +48,9 @@ export default class BotActions {
             retireTranslator: cardDeck.colorMajority == SchemeCardColor.BLUE ? 6 : 7 })
           break
       }
+      const silverValueSum = cardDeck.silverValueSum
       cardDeck.shuffle()
-      return new BotActions(actions, undefined, addDiceSum(botResources, diceSumModifier), colorMajority, true)
+      return new BotActions(actions, undefined, addDiceSum(botResources, diceSumModifier), colorMajority, silverValueSum, true)
     }
     else {
       // draw card
@@ -73,7 +76,7 @@ export default class BotActions {
         resourceTrack: newResourceTrack,
         resourceTrackBenefitsClaimed,
         diceSum: botResources.diceSum,
-      }, cardDeck.colorMajority, false)
+      }, cardDeck.colorMajority, cardDeck.silverValueSum, false)
     }
   }
 

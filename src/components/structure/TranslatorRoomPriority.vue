@@ -26,7 +26,7 @@ export default defineComponent({
   },
   computed: {
     rooms() : number[] {
-      return getTranslatorRoom(this.navigationState.cardDeck.silverValueSum)
+      return getTranslatorRoom(this.navigationState.botActions?.silverValueSum ?? this.navigationState.cardDeck.silverValueSum)
     }
   }
 })

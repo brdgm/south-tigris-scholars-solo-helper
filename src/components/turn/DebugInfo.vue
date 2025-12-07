@@ -3,9 +3,11 @@
     <hr/>
     <p class="debug">
       <b>currentCard</b>: {{cardDeck.currentCard}}<br/>
-      <b>cardDeck</b>: {{cardDeck.toPersistence()}}<br/>
+      <b>cardDeck</b>: {{cardDeck.toPersistence()}},
+        <b>silverValueSum:</b> {{navigationState.botActions?.silverValueSum ?? navigationState.cardDeck.silverValueSum}},
+        <b>colorMajority</b>: {{navigationState.botActions?.colorMajority ?? cardDeck.colorMajority}},
+        <b>isRest</b>: {{isRest}}<br/>
       <b>botResources</b>: {{navigationState.botResources}}<br/>
-      <b>colorMajority</b>: {{navigationState.botActions?.colorMajority ?? cardDeck.colorMajority}}, <b>isRest</b>: {{isRest}}<br/>
     </p>
   </div>
 </template>
