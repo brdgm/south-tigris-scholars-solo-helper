@@ -28,9 +28,9 @@
         <AppIcon v-if="action.diceSumModifier < 0" type="dice-sum" name="subtract" class="icon"/>
       </div>
     </div>
-    <div class="priority" v-if="hasPriority || isInfluence1AnyBonus">
+    <div class="priority" v-if="hasPriority || guildPriority || isInfluence1AnyBonus">
       <slot name="priority"></slot>
-      <GuildPriority v-if="isInfluence1AnyBonus" :navigationState="navigationState"/>
+      <GuildPriority v-if="guildPriority || isInfluence1AnyBonus" :navigationState="navigationState"/>
     </div>
   </div>
 
@@ -98,6 +98,10 @@ export default defineComponent({
       required: true
     },
     modalSizeLg: {
+      type: Boolean,
+      required: false
+    },
+    guildPriority: {
       type: Boolean,
       required: false
     },

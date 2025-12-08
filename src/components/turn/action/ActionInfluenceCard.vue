@@ -1,5 +1,5 @@
 <template>
-  <ActionBox :action="action" :instruction-title="t('rules.action.influenceCard.title')" :modalSizeLg="true" :navigationState="navigationState">
+  <ActionBox :action="action" :instruction-title="t('rules.action.influenceCard.title')" :modalSizeLg="true" :guildPriority="true" :navigationState="navigationState">
     <template #action>
       <div class="action">
         <AppIcon type="action" :name="action.action" class="icon"/>
@@ -7,7 +7,6 @@
     </template>
     <template #priority>
       <LanguagePriority :navigationState="navigationState"/>
-      <GuildPriority :navigationState="navigationState"/>
     </template>
     <template #instruction>
       <p v-html="t('rules.action.influenceCard.houseOfWisdomScrolls')"/>
@@ -31,7 +30,6 @@ import { useI18n } from 'vue-i18n'
 import { CardAction } from '@/services/Card'
 import ActionBox from '../ActionBox.vue'
 import AppIcon from '@/components/structure/AppIcon.vue'
-import GuildPriority from '@/components/structure/GuildPriority.vue'
 import NavigationState from '@/util/NavigationState'
 import LanguagePriority from '@/components/structure/LanguagePriority.vue'
 
@@ -41,7 +39,6 @@ export default defineComponent({
   components: {
     ActionBox,
     AppIcon,
-    GuildPriority,
     LanguagePriority
   },
   setup() {

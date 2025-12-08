@@ -1,5 +1,5 @@
 <template>
-  <ActionBox :action="action" :instruction-title="t('rules.action.travel.title')" :navigationState="navigationState">
+  <ActionBox :action="action" :instruction-title="t('rules.action.travel.title')" :guildPriority="true" :navigationState="navigationState">
     <template #action>
       <div class="action">
         <AppIcon type="action" :name="action.action" class="icon"/>
@@ -7,7 +7,6 @@
     </template>
     <template #priority>
       <LanguagePriority :navigationState="navigationState"/>
-      <GuildPriority :navigationState="navigationState"/>
     </template>
     <template #instruction>
       <p v-html="t('rules.action.travel.deliverScroll')"/>
@@ -30,7 +29,6 @@ import ActionBox from '../ActionBox.vue'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import NavigationState from '@/util/NavigationState'
 import LanguagePriority from '@/components/structure/LanguagePriority.vue'
-import GuildPriority from '@/components/structure/GuildPriority.vue'
 
 export default defineComponent({
   name: 'ActionTravel',
@@ -38,8 +36,7 @@ export default defineComponent({
   components: {
     ActionBox,
     AppIcon,
-    LanguagePriority,
-    GuildPriority
+    LanguagePriority
   },
   setup() {
     const { t } = useI18n()
