@@ -11,7 +11,7 @@
       </div>
       <slot name="action"></slot>
       <div class="bonus" v-if="action.silverBonus">
-        <AppIcon v-for="index of action.silverBonus" :key="index" name="silver" extension="webp" class="icon silver"/>
+        <AppIcon v-for="index of action.silverBonus" :key="index" name="resource-track-advancement" class="icon resourceTrackAdvancement"/>
       </div>
       <div class="bonus" v-if="action.influenceBonus">
         <AppIcon v-for="(guild,index) of action.influenceBonus" :key="index" type="guild" :name="guild" class="icon"/>
@@ -28,8 +28,9 @@
         <AppIcon v-if="action.diceSumModifier < 0" type="dice-sum" name="subtract" class="icon"/>
       </div>
     </div>
-    <div class="priority" v-if="hasPriority">
+    <div class="priority" v-if="hasPriority || guildPriority || isInfluence1AnyBonus">
       <slot name="priority"></slot>
+      <GuildPriority v-if="guildPriority || isInfluence1AnyBonus" :navigationState="navigationState"/>
     </div>
   </div>
 
@@ -71,12 +72,15 @@ import { useI18n } from 'vue-i18n'
 import Guild from '@/services/enum/Guild'
 import { useStateStore } from '@/store/state'
 import Expansion from '@/services/enum/Expansion'
+import GuildPriority from '@/components/structure/GuildPriority.vue'
+import NavigationState from '@/util/NavigationState'
 
 export default defineComponent({
   name: 'ActionBox',
   components: {
     ModalDialog,
-    AppIcon
+    AppIcon,
+    GuildPriority
   },
   setup() {
     const { t } = useI18n()
@@ -96,6 +100,14 @@ export default defineComponent({
     modalSizeLg: {
       type: Boolean,
       required: false
+    },
+    guildPriority: {
+      type: Boolean,
+      required: false
+    },
+    navigationState: {
+      type: NavigationState,
+      required: true
     }
   },
   computed: {
@@ -158,15 +170,15 @@ export default defineComponent({
     gap: 0.25rem;
     .icon {
       height: 2.75rem;
-      &.silver {
-        filter: drop-shadow(1px 0 0 white)
-          drop-shadow(-1px 0 0 white)
-          drop-shadow(0 1px 0 white)
-          drop-shadow(0 -1px 0 white);
+      &.resourceTrackAdvancement {
+        height: 2rem;
       }
     }
     .icon + .icon {
       margin-left: -1rem;
+    }
+    .icon.resourceTrackAdvancement + .icon.resourceTrackAdvancement {
+      margin-left: -2.25rem;
     }
     .multiple {
       height: 1.5rem;

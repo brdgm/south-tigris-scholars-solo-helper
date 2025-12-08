@@ -108,7 +108,7 @@ export default defineComponent({
       return this.allActions.length > this.action + 1 && !this.isRest
     },
     additionalResourceTrackBenefit() : CardAction|undefined {
-      return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.botSilver),
+      return getResourceTrackBenefit(this.navigationState.botResources.resourceTrack, toNumber(this.botSilver) + this.currentActionSilverBonus + this.caliphActionsSilverBonus,
           this.navigationState.botResources.resourceTrackBenefitsClaimed)
     },
     currentActionSilverBonus() : number {
