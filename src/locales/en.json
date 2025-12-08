@@ -23,7 +23,7 @@
     "title": "Setup AI",
     "instructions": {
       "intro": "Setup the game for a 2-player game, with the following changes for the AI:",
-      "soloBoard": "Give your opponent the Solo Board instead of a Player Board. It's only used to collect their translated Scroll Cards grouped by language.",
+      "soloBoard": "Give your opponent the Solo Board instead of a Player Board. It's used to collect their translated Scroll Cards grouped by language.",
       "influenceOrangeGuild": "Place <b>{count} Influence in the Orange Guild</b>.",
       "influencePurpleGuildScrollCard": "Place <b>{count} Influence on the Scroll Card in the Purple Guild</b>.",
       "influenceScrollCardNeutralMarker": "Place <b>{count} Influence on the Scroll Card adjacent to the Neutral Marker</b>.",
