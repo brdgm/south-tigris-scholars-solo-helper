@@ -124,6 +124,7 @@
         <tr>
           <th scope="row">
             <span v-html="t('gameEnd.scoring.diceSum')"></span>
+            ({{t('turnBot.title')}}: {{navigationState.botResources.diceSum}})
           </th>
           <td>
             <NumberInput v-model="playerDiceSumVP"/>
