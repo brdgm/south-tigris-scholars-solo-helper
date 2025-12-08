@@ -1,5 +1,5 @@
 <template>
-  <ActionBox :action="action" :instruction-title="t('rules.action.translatorRetire.title')">
+  <ActionBox :action="action" :instruction-title="t('rules.action.translatorRetire.title')" :navigationState="navigationState">
     <template #action>
       <div class="action">
         <AppIcon v-if="action.retireTranslator" type="translator" :name="`${action.retireTranslator}`" extension="webp" class="icon translator"/>

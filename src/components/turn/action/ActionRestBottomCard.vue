@@ -1,5 +1,5 @@
 <template>
-  <ActionBox :action="action" :instruction-title="t('rules.action.restBottomCard.title')">
+  <ActionBox :action="action" :instruction-title="t('rules.action.restBottomCard.title')" :navigationState="navigationState">
     <template #action>
       <div class="action">
         <AppIcon name="rest" class="icon"/>

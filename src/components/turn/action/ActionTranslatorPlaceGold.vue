@@ -1,5 +1,5 @@
 <template>
-  <ActionBox :action="action" :instruction-title="t('rules.action.translatorPlaceGold.title')">
+  <ActionBox :action="action" :instruction-title="t('rules.action.translatorPlaceGold.title')" :navigationState="navigationState">
     <template #action>
       <div class="action">
         <AppIcon type="action" :name="action.action" class="icon"/>

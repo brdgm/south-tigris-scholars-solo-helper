@@ -1,5 +1,5 @@
 <template>
-  <ActionBox :action="action" :instruction-title="t('rules.action.influence.title')">
+  <ActionBox :action="action" :instruction-title="t('rules.action.influence.title')" :navigationState="navigationState">
     <template #action>
       <div class="action">
       </div>

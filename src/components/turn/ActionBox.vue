@@ -28,8 +28,9 @@
         <AppIcon v-if="action.diceSumModifier < 0" type="dice-sum" name="subtract" class="icon"/>
       </div>
     </div>
-    <div class="priority" v-if="hasPriority">
+    <div class="priority" v-if="hasPriority || isInfluence1AnyBonus">
       <slot name="priority"></slot>
+      <GuildPriority v-if="isInfluence1AnyBonus" :navigationState="navigationState"/>
     </div>
   </div>
 
@@ -71,12 +72,15 @@ import { useI18n } from 'vue-i18n'
 import Guild from '@/services/enum/Guild'
 import { useStateStore } from '@/store/state'
 import Expansion from '@/services/enum/Expansion'
+import GuildPriority from '@/components/structure/GuildPriority.vue'
+import NavigationState from '@/util/NavigationState'
 
 export default defineComponent({
   name: 'ActionBox',
   components: {
     ModalDialog,
-    AppIcon
+    AppIcon,
+    GuildPriority
   },
   setup() {
     const { t } = useI18n()
@@ -96,6 +100,10 @@ export default defineComponent({
     modalSizeLg: {
       type: Boolean,
       required: false
+    },
+    navigationState: {
+      type: NavigationState,
+      required: true
     }
   },
   computed: {

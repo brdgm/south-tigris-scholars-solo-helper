@@ -1,5 +1,5 @@
 <template>
-  <ActionBox :action="action" :instruction-title="t('rules.action.influenceCard.title')" :modalSizeLg="true">
+  <ActionBox :action="action" :instruction-title="t('rules.action.influenceCard.title')" :modalSizeLg="true" :navigationState="navigationState">
     <template #action>
       <div class="action">
         <AppIcon type="action" :name="action.action" class="icon"/>
