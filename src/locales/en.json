@@ -46,6 +46,7 @@
         "letThem": "Let them interact and gain 1 Silver from the Main Supply.",
         "denyThem": "Deny them. You may pay 1 Silver to have them move to the available Scroll Card. You can do this multiple times, so long as you can afford to. However, you can never fully deny them the action."
       },
+      "caliphCards": "<b>Caliph Cards</b>: Whenever a Caliph Card is drawn, use the <i>Caliph Card</i> button to resolve the choices and benefits of your opponent.",
       "upgradedActionCards": "Any time you gain an <b>Upgraded Action Card</b>, return the other Action Card from that same column to the box. Return any XP on the discarded Action Card to the Main Supply. In this way, you can never gain more than 3 Upgraded Action Cards during a solo game."
     }
   },

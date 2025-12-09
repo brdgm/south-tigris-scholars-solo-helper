@@ -63,6 +63,7 @@ import { CardAction } from '@/services/Card'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import addDiceSum from '@/util/addDiceSum'
 import Action from '@/services/enum/Action'
+import addResourceTrackBenefitsClaimed from '@/util/addResourceTrackBenefitsClaimed'
 
 export default defineComponent({
   name: 'TurnBot',
@@ -134,7 +135,8 @@ export default defineComponent({
         player: this.navigationState.player,
         botPersistence: {
           cardDeck: this.navigationState.cardDeck.toPersistence(),
-          botResources: addDiceSum(addResourceTrack(this.navigationState.botResources, toNumber(this.botSilver) + this.currentActionSilverBonus + this.caliphActionsSilverBonus), this.caliphActionsDiceSumModifier),
+          botResources: addResourceTrackBenefitsClaimed(addDiceSum(addResourceTrack(this.navigationState.botResources, toNumber(this.botSilver) + this.currentActionSilverBonus + this.caliphActionsSilverBonus),
+              this.caliphActionsDiceSumModifier), this.additionalResourceTrackBenefit),
         }
       })
       this.router.push(`/turn/${this.turn+1}/player`)

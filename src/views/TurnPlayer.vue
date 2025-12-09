@@ -33,6 +33,7 @@ import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
 import { CardAction } from '@/services/Card'
 import BotAction from '@/components/turn/BotAction.vue'
 import addDiceSum from '@/util/addDiceSum'
+import addResourceTrackBenefitsClaimed from '@/util/addResourceTrackBenefitsClaimed'
 
 export default defineComponent({
   name: 'TurnPlayer',
@@ -85,7 +86,8 @@ export default defineComponent({
         player: this.navigationState.player,
         botPersistence: {
           cardDeck: this.navigationState.cardDeck.toPersistence(),
-          botResources: addDiceSum(addResourceTrack(this.navigationState.botResources, toNumber(this.botSilver) + this.caliphActionsSilverBonus), this.caliphActionsDiceSumModifier)
+          botResources: addResourceTrackBenefitsClaimed(addDiceSum(addResourceTrack(this.navigationState.botResources, toNumber(this.botSilver) + this.caliphActionsSilverBonus),
+              this.caliphActionsDiceSumModifier), this.additionalResourceTrackBenefit)
         }
       })
       this.router.push(`/turn/${this.turn+1}/bot`)
