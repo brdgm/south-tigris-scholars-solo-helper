@@ -6,6 +6,8 @@ import Action from './enum/Action'
 import SchemeCardColor from './enum/SchemeCardColor'
 import Guild from './enum/Guild'
 import addDiceSum from '@/util/addDiceSum'
+import addResourceTrack from '@/util/addResourceTrack'
+import addResourceTrackBenefitsClaimed from '@/util/addResourceTrackBenefitsClaimed'
 
 /**
  * Bot actions derived from scheme card deck.
@@ -58,25 +60,13 @@ export default class BotActions {
 
       // resource track advancements
       const advanceSteps = card.silverValue
-      const oldResourceTrack = botResources.resourceTrack
-      let newResourceTrack = oldResourceTrack + advanceSteps
 
       // benefits from resource track and drawn card
-      let resourceTrackBenefitsClaimed = botResources.resourceTrackBenefitsClaimed
-      const benefit = getResourceTrackBenefit(oldResourceTrack, advanceSteps, resourceTrackBenefitsClaimed)
-      if (benefit) {
-        resourceTrackBenefitsClaimed++
-      }
+      const benefit = getResourceTrackBenefit(botResources.resourceTrack, advanceSteps, botResources.resourceTrackBenefitsClaimed)
       
-      if (newResourceTrack > 5) {
-        newResourceTrack -= 6
-      }
-
-      return new BotActions(card.actions, benefit, {
-        resourceTrack: newResourceTrack,
-        resourceTrackBenefitsClaimed,
-        diceSum: botResources.diceSum,
-      }, cardDeck.colorMajority, cardDeck.silverValueSum, false)
+      return new BotActions(card.actions, benefit,
+        addResourceTrackBenefitsClaimed(addResourceTrack(botResources, advanceSteps), benefit),
+        cardDeck.colorMajority, cardDeck.silverValueSum, false)
     }
   }
 

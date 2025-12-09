@@ -1,6 +1,10 @@
 <template>
   <div class="actionBox" :class="{'instruction': hasInstruction}" @click="showInstructions">
     <div class="actionWrapper">
+      <div class="cost researchMarker" v-if="action.researchMarker">
+        <AppIcon name="research-marker" class="icon researchMarker"/>
+        <div class="separator">:</div>
+      </div>
       <div class="cost" v-if="action.requireEmployedTranslators">
         <AppIcon type="require" :name="`employed-translators-${action.requireEmployedTranslators}`" class="icon"/>
         <AppIcon name="arrow" class="arrow"/>
@@ -173,6 +177,9 @@ export default defineComponent({
       &.resourceTrackAdvancement {
         height: 2rem;
       }
+      &.researchMarker {
+        height: 2.5rem;
+      }
     }
     .icon + .icon {
       margin-left: -1rem;
@@ -189,6 +196,13 @@ export default defineComponent({
       height: 1.5rem;
       margin-left: 0.5rem;
       margin-right: -0.25rem;
+    }
+  }
+  .researchMarker {
+    font-size: 2rem;
+    color: white;
+    .separator {
+      margin-top: -0.5rem;
     }
   }
   .priority {

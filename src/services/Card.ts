@@ -11,6 +11,7 @@ export default interface Card {
 
 export interface CardAction {
   action: Action
+  researchMarker?: boolean
   silverBonus?: number
   influenceBonus?: Guild[]
   requireEmployedTranslators?: number

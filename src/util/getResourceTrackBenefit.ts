@@ -15,15 +15,15 @@ export default function getResourceTrackBenefit(resourceTrack: number, resourceT
   if (newReachedCount > oldReachedCount) {
     switch (resourceTrackBenefitsClaimed) {
       case 0:
-        return { action: Action.INFLUENCE, influenceBonus: [Guild.PURPLE], pageCard: true }
+        return { action: Action.INFLUENCE, researchMarker: true, influenceBonus: [Guild.PURPLE], pageCard: true }
       case 1:
       case 3:
       case 5:
-        return { action: Action.TRANSLATOR_PLACE_GOLD, pageCard: true }
+        return { action: Action.TRANSLATOR_PLACE_GOLD, researchMarker: true, pageCard: true }
       case 2:
-        return { action: Action.INFLUENCE, influenceBonus: [Guild.ORANGE], pageCard: true }
+        return { action: Action.INFLUENCE, researchMarker: true, influenceBonus: [Guild.ORANGE], pageCard: true }
       case 4:
-        return { action: Action.INFLUENCE, influenceBonus: [Guild.GREEN], pageCard: true }
+        return { action: Action.INFLUENCE, researchMarker: true, influenceBonus: [Guild.GREEN], pageCard: true }
       default:
         return undefined
     }
