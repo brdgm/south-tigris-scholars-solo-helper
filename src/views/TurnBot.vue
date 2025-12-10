@@ -1,5 +1,5 @@
 <template>
-  <SideBar :navigationState="navigationState" @caliphActions="actions => caliphActions=actions" @caliphOptionsRemove="caliphActions=[]"/>
+  <SideBar :navigationState="navigationState" @caliphActions="actions => caliphActions.push(...actions)" @caliphOptionsRemove="caliphActions=[]"/>
   <h1>
     {{t('turnBot.title')}}
     <AppIcon v-if="botActions?.isRest" name="rest" class="restIcon"/>
