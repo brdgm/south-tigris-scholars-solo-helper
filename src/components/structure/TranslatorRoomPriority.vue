@@ -36,6 +36,7 @@ export default defineComponent({
 .rooms {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 .room {
