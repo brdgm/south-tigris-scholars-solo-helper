@@ -3,6 +3,7 @@
     <template #action>
       <div class="action">
         <AppIcon type="action" :name="action.action" class="icon"/>
+        <AppIcon name="translation-place-gold" class="icon translationPlaceGold"/>
       </div>
     </template>
     <template #priority>
@@ -73,6 +74,13 @@ export default defineComponent({
 .icon {
   height: 3rem;
   &.translationPlaceGold {
+    height: 4rem;
+    margin: -1rem;
+    margin-bottom: -1.5rem;
+  }
+}
+.modal {
+  .icon.translationPlaceGold {
     height: 4rem;
     margin: -0.5rem;
     filter: drop-shadow(2px 2px 2px #888);
