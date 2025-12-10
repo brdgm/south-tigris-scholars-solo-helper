@@ -33,6 +33,7 @@ export default defineComponent({
 .translators {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 0.25rem;
 }
 .translator {

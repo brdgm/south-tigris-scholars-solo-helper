@@ -51,6 +51,9 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   gap: 10px;
+  div {
+    text-align: center;
+  }
 }
 .icon {
   height: 2rem;
