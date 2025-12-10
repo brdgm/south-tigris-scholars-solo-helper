@@ -1,0 +1,208 @@
+{
+  "gameTitle": "Scholars of the South Tigris",
+  "home": {
+    "title": "Scholars of the South Tigris Solo Helper",
+    "play1": "Play <a href='https://boardgamegeek.com/boardgame/367041/scholars-of-the-south-tigris' target='_blank' rel='noopener'><b>Scholars of the South Tigris</b></a> solo against the AI.",
+    "play2": "This application replaces scheme cards, manages most of the AI player board and guides you through the game and solo ruleset. It supports all difficulty levels.",
+    "play3": "You can also play with the <a href='https://boardgamegeek.com/boardgameexpansion/427131/scholars-of-the-south-tigris-body-of-books' target='_blank' rel='noopener'>Body of Books</a> expansion.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Setup",
+    "difficultyLevel": {
+      "title": "Difficulty Level",
+      "easy": "Easy",
+      "hard": "Hard"
+    },
+    "expansions": {
+      "title": "Expansions",
+      "body-of-books": "Body of Books"
+    }
+  },
+  "setupBot": {
+    "title": "Setup AI",
+    "instructions": {
+      "intro": "Setup the game for a 2-player game, with the following changes for the AI:",
+      "soloBoard": "Give your opponent the Solo Board instead of a Player Board. It's used to collect their translated Scroll Cards grouped by language.",
+      "influenceOrangeGuild": "Place <b>{count} Influence in the Orange Guild</b>.",
+      "influencePurpleGuildScrollCard": "Place <b>{count} Influence on the Scroll Card in the Purple Guild</b>.",
+      "influenceScrollCardNeutralMarker": "Place <b>{count} Influence on the Scroll Card adjacent to the Neutral Marker</b>.",
+      "goldOnLeftMostTranslatorCount": "Place <b>1 Gold on the left-most neutral Translator</b>. | Place <b>1 Gold on each of the 2 left-most neutral Translators</b>.",
+      "startingScrollCard": "They start with a random <b>{language} Scroll Card</b> from the reserve. Place it facedown above the associated language as printed across the top of the Solo Board, without any further effect.",
+      "researchMarkers": "Rather than placing their Research Markers on the Main Board, keep them nearby the Solo Board.",
+      "researchMarkersBodyOfBooks": "Place 6 of your opponent’s Research Markers on the Main Board Extension. Each Research Marker should be placed directly below a different Page Card.",
+      "noSchemeCards": "The AI does not need the action cards or scheme cards - the scheme card deck and the \"Dice Sum\" track is managed by this application.",
+      "xpFirstCaliphSpace": "Place only 1 XP on the first Caliph Card space.",
+      "firstPlayerMarker": "Give yourself the First Player Marker. You can play either the Casual or Epic version of the game.",
+      "noFurtherSetup": "Do not give your opponent any other player components. They do not select a Starting Translator or Resource Card."
+    },
+    "ruleChanges": {
+      "title": "Rule Changes",
+      "neutralTranslators": "All <b>Neutral Translators</b> belong to your opponent, there is no need to place Influence on them.",
+      "retireNeutralTranslators": "When Neutral Translators <b>Retire</b>, place them in a pile nearby the Solo Board.",
+      "scrollCardIcons": "The AI <b>ignores all Icons</b> on Scroll Cards.",
+      "influenceCard": {
+        "title": "<b>Influence on Cards</b>: If the AI has an Influence on a Card that you want to interact with, you still need to pay them - enter the amount in the app on the current screen. If the AI wants to interact with a Card that you have an Influence on, you have a choice:",
+        "letThem": "Let them interact and gain 1 Silver from the Main Supply.",
+        "denyThem": "Deny them. You may pay 1 Silver to have them move to the available Scroll Card. You can do this multiple times, so long as you can afford to. However, you can never fully deny them the action."
+      },
+      "caliphCards": "<b>Caliph Cards</b>: Whenever a Caliph Card is drawn, use the <i>Caliph Card</i> button to resolve the choices and benefits of your opponent.",
+      "upgradedActionCards": "Any time you gain an <b>Upgraded Action Card</b>, return the other Action Card from that same column to the box. Return any XP on the discarded Action Card to the Main Supply. In this way, you can never gain more than 3 Upgraded Action Cards during a solo game."
+    }
+  },
+  "turnPlayer": {
+    "title": "Player",
+    "execute": "Execute you turn.",
+    "botSilver": "Silver you pay to the AI:"
+  },
+  "turnBot": {
+    "title": "AI",
+    "executed": "Executed",
+    "notPossible": "Not Possible"
+  },
+  "gameEnd": {
+    "title": "End of Game",
+    "botCards": {
+      "title": "AI Scroll Cards",
+      "count": "Count",
+      "cards": "Cards",
+      "vp": "VP",
+      "retiredTranslator": "Retired Translators",
+      "retiredTranslatorBodyOfBooks": "Retired Translators (without Page Cards)",
+      "translatedScrollCard": "Translated Scrolls",
+      "researchMarker": "Research Markers",
+      "employedNeutralTranslator": "Employed Neutral Translators",
+      "influence": "Total Influence on all Guilds"
+    },
+    "scoring": {
+      "title": "Victory Points",
+      "diceSum": "Dice Sum VP",
+      "retiredTranslators": "Retired Translators VP",
+      "retiredTranslatorsBodyOfBooks": "Retired Translators and Page Cards VP",
+      "guildMajorities": "Guild Majorities VP",
+      "caliphCards": "Caliph Cards VP",
+      "researchMarkers": "Research Markers VP",
+      "scrollCards": "Scroll Cards VP",
+      "rowBonusTiles": "Row Bonus Tiles VP",
+      "totalVP": "Total VP"
+    }
+  },
+  "sideBar": {
+    "turn": "Turn {turn}"
+  },
+  "difficultyLevel": {
+    "1": "Level 1 - Student",
+    "2": "Level 2 - Scribe",
+    "3": "Level 3 - Teacher",
+    "4": "Level 4 - Scholar"
+  },
+  "language": {
+    "chinese": "Chinese",
+    "sanskrit": "Sanskrit",
+    "greek": "Greek",
+    "hebrew": "Hebrew",
+    "persian": "Persian",
+    "syriac": "Syriac"
+  },
+  "rules": {
+    "action": {
+      "general": {
+        "requireEmployedTranslators": "The action can only be executed, if there are at least {count} Employed Translators.",
+        "requireScrollCardsHouseOfWisdom": "The action can only be executed, if there are at least {count} Scrolls Cards in the House of Wisdom.",
+        "influence1AnyBonus": "The AI places influence on a Guild. They will focus on a Guild where no players have any Influence. If there are multiple options available, they will decide between those options by selecting the Guild where they have no Influence. If there are still multiple options, they will decide between those options using their colour focus.",
+        "influenceBonus": "The AI places the indicated influence on a Guild.",
+        "silverBonus": "The AI moves the Resource Track marker the indicated amount of steps <i>(managed by the application)</i>.",
+        "pageCard": "The AI gains a Page Card. From the Main Board Extension, choose the Page Card with the highest VP, and marked with one of their Research Markers. If tied, take the highest, then the left-most Page Card. Discard the Research Marker below it.",
+        "diceSumAdd": "The AI adds 1 to their Dice Sum <i>(managed by the application)</i>.",
+        "diceSumSubtract": "The AI subtracts 1 from their Dice Sum <i>(managed by the application)</i>."
+      },
+      "influenceCard": {
+        "title": "Influence Card",
+        "houseOfWisdomScrolls": "The AI influences a scroll card. They focus on the House of Wisdom first:",
+        "mapScrolls": "If all Scrolls in the House of Wisdom already have Influence on them, they will focus on the Map:"
+      },
+      "translate": {
+        "title": "Translate",
+        "translate": "The AI will translate a scroll from the House of Wisdom:",
+        "languageFocus": "Use their language focus to select a scroll card.",
+        "lowestRow": "If there are multiple options available, they will decide between those options by selecting the Scroll Card that is in the lowest row in the House of Wisdom.",
+        "guildFocus": "If there are still multiple options, they will decide between those options using their colour focus.",
+        "placeCard": "After Translating a Scroll Card, place it facedown above the matching language printed on the Solo Board. Then place up to a number of Gold from the Main Supply as indicated by the Gold icon below the language on the Solo Board.",
+        "placeGold": {
+          "title": "They will aim to place the required number of Gold, while never placing more than 1 Gold during the same Translation action on a single Translator. When placing Gold, follow these steps:",
+          "neutralTranslatorsLanguage": "Place onto Neutral Translators who can speak the Scroll Card’s language, moving from right to left across the Main Board.",
+          "translatorsLanguage": "Place onto your Translators who can speak the Scroll Card’s language, moving from left to right across the Main Board. You receive 1 Silver for each.",
+          "neutralTranslators": "Place onto Neutral Translators who cannot speak the Scroll Card’s language, moving from right to left across the Main Board.",
+          "translators": "Place onto your Translators who cannot speak the Scroll Card’s language, moving from left to right across the Main Board. You receive 1 Silver for each."
+        }
+      },
+      "travel": {
+        "title": "Deliver a Scroll Card",
+        "deliverScroll": "They deliver a Scroll from the Map:",
+        "languageFocus": "Use their language focus, looking clockwise around the Map, starting from the Neutral Marker.",
+        "neutralMarkRelation": "While they do not move the Neutral Marker, they act as if they would have, just like you moving your Player Marker. As such, they won’t target the Scroll Card adjacent to the Neutral Marker, unless they do a full loop around the Map.",
+        "placeCard": "When Delivering their chosen Scroll Card, they will aim to place it into the highest row in the House of Wisdom. If there are multiple options available, they will decide between those options using their colour focus.",
+        "influenceTwo": "After Delivering, they will gain <b>exactly 2 Influence</b> in the Guild where they Delivered (independent of the row they delivery to).",
+        "influenceDependingOnRow": "After Delivering, they will gain either <b>1 or 2 Influence</b> in the Guild where they Delivered (depending on the row they delivered to)."
+      },
+      "translatorEmploy": {
+        "title": "Employ Translator",
+        "chooseTranslator": "Use their Translator focus when Employing a Translator, while trying to avoid Employing any duplicates across all Rooms (regardless of ownership). If all 6 Translators are already Employed, they will just Employ using their original focus despite them being a duplicate.",
+        "chooseRoom": "They place the Translator into the right-most available Room according their room cost focus.",
+        "neutralTranslators": "Since your opponent owns all Neutral Translators, there is no need to place their Influence on them. They ignore all costs and immediate effects from Rooms."
+      },
+      "translatorPlaceGold": {
+        "title": "Place Gold on Translator",
+        "instruction": "The AI places 1 Gold on the left-most neutral translator."
+      },
+      "translatorRetire": {
+        "title": "Retire Translator",
+        "instruction": "The AI retires the pictured Translator from the top section of the Main Board.",
+        "highestVP": "The AI retires Translator with the highest VP from the top section of the Main Board. If tied, choose the left-most Translator with the highest VP."
+      },
+      "influence": {
+        "title": "Influence"
+      },
+      "silver": {
+        "title": "Silver"
+      },
+      "restBottomCard": {
+        "title": "Draw Bottom Card",
+        "instruction": "Reveal the bottom Card from the Scroll Card Draw Pile and resolve just as you would when you Rest."
+      }
+    },
+    "caliphCard": {
+      "title": "Caliph Card",
+      "guildControl": "When your opponents controls a guild, and needs to select an option on a Caliph Card, check the selected option (the red numbers show his preference):",
+      "consolation": "Check if your opponent gains any consolation reward:",
+      "apply": "Apply",
+      "remove": "Remove"
+    }
+  },
+  "notfound": {
+    "title": "Not Found"
+  },
+  "action": {
+    "playGame": "Play Game",
+    "startGame": "Start Game",
+    "next": "Next",
+    "nextRound": "Next Round",
+    "abortGame": "Abort Game",
+    "abortGameConfirm": "Aborting the running game - are you sure?",
+    "endGame": "End Game",
+    "endGameConfirm": "End this game and return to home screen - are you sure?",
+    "endGameGoToScoringConfirm": "End this game and go to scoring screen?",
+    "cancel": "Cancel",
+    "backToHome": "Back to Home",
+    "back": "Back",
+    "close": "Close",
+    "ok": "OK"
+  },
+  "footer": {
+    "credits": "Credits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Refresh Application",
+    "notice": "The application was updated - do you want to refresh to use the latest version?"
+  }
+}

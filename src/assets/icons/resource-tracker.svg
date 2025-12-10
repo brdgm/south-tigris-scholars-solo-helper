@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24.07 20.59">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: .5px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke-width: .75px;
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-2" d="M.37,7.08v6.44c0,3.7,5.22,6.7,11.66,6.7s11.66-3,11.66-6.7v-6.44C23.7,3.38,18.48.38,12.04.38S.37,3.38.37,7.08"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="-307.11" y1="490.25" x2="-306.11" y2="490.25" gradientTransform="translate(7162.88 11443.99) scale(23.32 -23.32)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#73be44"/>
+      <stop offset="1" stop-color="#0e6b37"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-5">
+    <rect class="cls-4" x=".37" y=".38" width="23.32" height="19.84"/>
+  </g>
+  <g>
+    <path class="cls-3" d="M23.7,13.52c0,3.7-5.22,6.7-11.66,6.7S.38,17.22.38,13.52v-6.44C.38,3.38,5.6.38,12.04.38s11.66,3,11.66,6.7v6.44Z"/>
+    <path class="cls-1" d="M23.7,7.07c0,3.7-5.22,6.7-11.67,6.7S.37,10.77.37,7.07"/>
+  </g>
+</svg>
