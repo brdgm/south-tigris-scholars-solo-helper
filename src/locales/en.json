@@ -31,10 +31,10 @@
       "startingScrollCard": "They start with a random <b>{language} Scroll Card</b> from the reserve. Place it facedown above the associated language as printed across the top of the Solo Board, without any further effect.",
       "researchMarkers": "Rather than placing their Research Markers on the Main Board, keep them nearby the Solo Board.",
       "researchMarkersBodyOfBooks": "Place 6 of your opponent’s Research Markers on the Main Board Extension. Each Research Marker should be placed directly below a different Page Card.",
-      "noSchemeCards": "The AI does not need the action cards or scheme cards - the scheme card deck and the \"Dice Sum\" track is managed by this application.",
       "xpFirstCaliphSpace": "Place only 1 XP on the first Caliph Card space.",
       "firstPlayerMarker": "Give yourself the First Player Marker. You can play either the Casual or Epic version of the game.",
-      "noFurtherSetup": "Do not give your opponent any other player components. They do not select a Starting Translator or Resource Card."
+      "noFurtherSetup": "Do not give your opponent any other player components. They do not select a Starting Translator or Resource Card.",
+      "noSchemeCards": "The AI does not need the action cards or scheme cards - the scheme card deck and the \"Dice Sum\" track is managed by this application. If you need help on an AI action, tap on the action to get the rules."
     },
     "ruleChanges": {
       "title": "Rule Changes",
