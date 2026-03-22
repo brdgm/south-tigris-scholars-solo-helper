@@ -1,0 +1,208 @@
+{
+  "gameTitle": "남티그리스의 학자",
+  "home": {
+    "title": "남티그리스의 학자 솔로 도우미",
+    "play1": "AI를 상대로 <a href='https://boardgamegeek.com/boardgame/367041/scholars-of-the-south-tigris' target='_blank' rel='noopener'><b>남티그리스의 학자</b></a>를 솔로로 플레이하세요.",
+    "play2": "이 앱은 계획 카드를 대체하고, AI 플레이어 보드를 관리하며, 게임과 솔로 규칙을 안내합니다. 모든 난이도를 지원합니다.",
+    "play3": "<a href='https://boardgamegeek.com/boardgameexpansion/427131/scholars-of-the-south-tigris-body-of-books' target='_blank' rel='noopener'>책의 본체</a> 확장판과 함께 플레이할 수도 있습니다.",
+    "feedback": "토론 및 피드백:"
+  },
+  "setup": {
+    "title": "게임 설정",
+    "difficultyLevel": {
+      "title": "난이도",
+      "easy": "쉬움",
+      "hard": "어려움"
+    },
+    "expansions": {
+      "title": "확장판",
+      "body-of-books": "책의 본체"
+    }
+  },
+  "setupBot": {
+    "title": "AI 설정",
+    "instructions": {
+      "intro": "2플레이어 게임으로 설정하되, AI를 위해 다음과 같이 변경하세요:",
+      "soloBoard": "상대방에게는 플레이어 보드 대신 솔로 보드를 주세요. 이는 번역된 두루마리 카드를 언어별로 모으는 데 사용됩니다.",
+      "influenceOrangeGuild": "<b>주황색 길드에 영향력 {count}개를 배치</b>하세요.",
+      "influencePurpleGuildScrollCard": "<b>보라색 길드의 두루마리 카드에 영향력 {count}개를 배치</b>하세요.",
+      "influenceScrollCardNeutralMarker": "<b>중립 마커 옆 두루마리 카드에 영향력 {count}개를 배치</b>하세요.",
+      "goldOnLeftMostTranslatorCount": "<b>가장 왼쪽 중립 번역가에 금화 1개를 배치</b>하세요. | <b>가장 왼쪽 두 중립 번역가 각각에 금화 1개씩을 배치</b>하세요.",
+      "startingScrollCard": "예비에서 무작위로 <b>{language} 두루마리 카드</b>를 가지고 시작합니다. 추가 효과 없이 솔로 보드 상단에 인쇄된 해당 언어 위에 뒷면으로 놓으세요.",
+      "researchMarkers": "메인 보드에 연구 마커를 배치하는 대신, 솔로 보드 근처에 두세요.",
+      "researchMarkersBodyOfBooks": "상대방의 연구 마커 6개를 메인 보드 확장에 배치하세요. 각 연구 마커는 서로 다른 페이지 카드 바로 아래에 배치되어야 합니다.",
+      "xpFirstCaliphSpace": "첫 번째 칼리프 카드 칸에 경험치 1개만 놓으세요.",
+      "firstPlayerMarker": "플레이어가 선 플레이어 마커를 가집니다. 캐주얼 버전 또는 에픽 버전 모두 플레이할 수 있습니다.",
+      "noFurtherSetup": "상대방에게 다른 플레이어 구성물을 주지 마세요. 시작 번역가나 자원 카드를 선택하지 않습니다.",
+      "noSchemeCards": "AI는 행동 카드나 계획 카드가 필요하지 않습니다. 계획 카드 덱과 \"주사위 합계\" 트랙은 이 앱에서 관리됩니다. AI 행동에 도움이 필요하면 행동을 탭해서 규칙을 확인하세요."
+    },
+    "ruleChanges": {
+      "title": "규칙 변경",
+      "neutralTranslators": "모든 <b>중립 번역가</b>는 상대방 소유이므로, 영향력을 놓을 필요가 없습니다.",
+      "retireNeutralTranslators": "중립 번역가가 <b>은퇴</b>하면, 솔로 보드 근처에 더미로 놓으세요.",
+      "scrollCardIcons": "AI는 두루마리 카드의 <b>모든 아이콘을 무시</b>합니다.",
+      "influenceCard": {
+        "title": "<b>카드의 영향력</b>: AI가 당신이 상호작용하려는 카드에 영향력을 가지고 있다면, 여전히 비용을 지불해야 합니다 - 현재 화면의 앱에 금액을 입력하세요. AI가 당신이 영향력을 가진 카드와 상호작용하려 한다면, 선택할 수 있습니다:",
+        "letThem": "허용하고 메인 공급처에서 은화 1개를 얻습니다.",
+        "denyThem": "거부합니다. 은화 1개를 지불하여 AI가 사용 가능한 두루마리 카드로 이동하게 할 수 있습니다. 지불할 수 있는 한 여러 번 할 수 있습니다. 하지만 완전히 행동을 거부할 수는 없습니다."
+      },
+      "caliphCards": "<b>칼리프 카드</b>: 칼리프 카드가 뽑힐 때마다, <i>칼리프 카드</i> 버튼을 사용하여 상대방의 선택과 이익을 처리하세요.",
+      "upgradedActionCards": "<b>업그레이드된 행동 카드</b>를 얻을 때마다, 같은 열의 다른 행동 카드를 상자로 반납하세요. 버린 행동 카드의 경험치는 메인 공급처로 반납하세요. 이렇게 솔로 게임에서는 3개 이상의 업그레이드된 행동 카드를 얻을 수 없습니다."
+    }
+  },
+  "turnPlayer": {
+    "title": "플레이어",
+    "execute": "턴을 실행하세요.",
+    "botSilver": "AI에게 지불할 은화:"
+  },
+  "turnBot": {
+    "title": "AI",
+    "executed": "실행됨",
+    "notPossible": "불가능"
+  },
+  "gameEnd": {
+    "title": "게임 종료",
+    "botCards": {
+      "title": "AI 두루마리 카드",
+      "count": "개수",
+      "cards": "카드",
+      "vp": "승점",
+      "retiredTranslator": "은퇴한 번역가",
+      "retiredTranslatorBodyOfBooks": "은퇴한 번역가 (페이지 카드 없음)",
+      "translatedScrollCard": "번역된 두루마리",
+      "researchMarker": "연구 마커",
+      "employedNeutralTranslator": "고용된 중립 번역가",
+      "influence": "모든 길드의 총 영향력"
+    },
+    "scoring": {
+      "title": "승리 점수",
+      "diceSum": "주사위 합계 승점",
+      "retiredTranslators": "은퇴한 번역가 승점",
+      "retiredTranslatorsBodyOfBooks": "은퇴한 번역가와 페이지 카드 승점",
+      "guildMajorities": "길드 다수 승점",
+      "caliphCards": "칼리프 카드 승점",
+      "researchMarkers": "연구 마커 승점",
+      "scrollCards": "두루마리 카드 승점",
+      "rowBonusTiles": "행 보너스 타일 승점",
+      "totalVP": "총 승점"
+    }
+  },
+  "sideBar": {
+    "turn": "{turn}턴"
+  },
+  "difficultyLevel": {
+    "1": "레벨 1 - 학생",
+    "2": "레벨 2 - 필경사",
+    "3": "레벨 3 - 교사",
+    "4": "레벨 4 - 학자"
+  },
+  "language": {
+    "chinese": "중국어",
+    "sanskrit": "산스크리트어",
+    "greek": "그리스어",
+    "hebrew": "히브리어",
+    "persian": "페르시아어",
+    "syriac": "시리아어"
+  },
+  "rules": {
+    "action": {
+      "general": {
+        "requireEmployedTranslators": "고용된 번역가가 최소 {count}명 있어야 행동을 실행할 수 있습니다.",
+        "requireScrollCardsHouseOfWisdom": "지혜의 집에 두루마리 카드가 최소 {count}개 있어야 행동을 실행할 수 있습니다.",
+        "influence1AnyBonus": "AI가 길드에 영향력을 배치합니다. 어느 플레이어도 영향력이 없는 길드에 집중합니다. 여러 선택지가 있다면, AI가 영향력이 없는 길드를 선택합니다. 여전히 여러 선택지가 있다면, 색상 우선순위를 사용합니다.",
+        "influenceBonus": "AI가 표시된 영향력을 길드에 배치합니다.",
+        "silverBonus": "AI가 자원 트랙 마커를 표시된 만큼 이동합니다 <i>(앱에서 관리)</i>.",
+        "pageCard": "AI가 페이지 카드를 얻습니다. 메인 보드 확장에서 가장 높은 승점을 가지고 연구 마커가 표시된 페이지 카드를 선택합니다. 동점이면 가장 높은, 그 다음 가장 왼쪽 페이지 카드를 가져갑니다. 아래 연구 마커를 버립니다.",
+        "diceSumAdd": "AI가 주사위 합계에 1을 추가합니다 <i>(앱에서 관리)</i>.",
+        "diceSumSubtract": "AI가 주사위 합계에서 1을 뺍니다 <i>(앱에서 관리)</i>."
+      },
+      "influenceCard": {
+        "title": "영향력 카드",
+        "houseOfWisdomScrolls": "AI가 두루마리 카드에 영향력을 행사합니다. 먼저 지혜의 집에 집중합니다:",
+        "mapScrolls": "지혜의 집의 모든 두루마리에 이미 영향력이 있다면, 지도에 집중합니다:"
+      },
+      "translate": {
+        "title": "번역",
+        "translate": "AI가 지혜의 집에서 두루마리를 번역합니다:",
+        "languageFocus": "언어 우선순위를 사용하여 두루마리 카드를 선택합니다.",
+        "lowestRow": "여러 선택지가 있다면, 지혜의 집에서 가장 낮은 행의 두루마리 카드를 선택합니다.",
+        "guildFocus": "여전히 여러 선택지가 있다면, 색상 우선순위를 사용합니다.",
+        "placeCard": "두루마리 카드를 번역한 후, 솔로 보드에 인쇄된 해당 언어 위에 뒷면으로 놓습니다. 그 다음 솔로 보드의 언어 아래 금화 아이콘이 나타내는 만큼 메인 공급처에서 금화를 놓습니다.",
+        "placeGold": {
+          "title": "필요한 만큼의 금화를 놓되, 같은 번역 행동에서 한 번역가에게 1개 이상 놓지 않습니다. 금화를 놓을 때는 다음 단계를 따르세요:",
+          "neutralTranslatorsLanguage": "두루마리 카드의 언어를 구사할 수 있는 중립 번역가에게 메인 보드에서 오른쪽에서 왼쪽으로 배치합니다.",
+          "translatorsLanguage": "두루마리 카드의 언어를 구사할 수 있는 당신의 번역가에게 메인 보드에서 왼쪽에서 오른쪽으로 배치합니다. 각각에 대해 은화 1개를 받습니다.",
+          "neutralTranslators": "두루마리 카드의 언어를 구사할 수 없는 중립 번역가에게 메인 보드에서 오른쪽에서 왼쪽으로 배치합니다.",
+          "translators": "두루마리 카드의 언어를 구사할 수 없는 당신의 번역가에게 메인 보드에서 왼쪽에서 오른쪽으로 배치합니다. 각각에 대해 은화 1개를 받습니다."
+        }
+      },
+      "travel": {
+        "title": "두루마리 카드 전달",
+        "deliverScroll": "지도에서 두루마리를 전달합니다:",
+        "languageFocus": "중립 마커에서 시작하여 지도 주위를 시계방향으로 보면서 언어 우선순위를 사용합니다.",
+        "neutralMarkRelation": "중립 마커를 이동하지는 않지만, 마치 플레이어 마커를 이동하는 것처럼 행동합니다. 따라서 지도를 완전히 한 바퀴 돌지 않는 한, 중립 마커 옆의 두루마리 카드를 대상으로 하지 않습니다.",
+        "placeCard": "선택한 두루마리 카드를 전달할 때, 지혜의 집에서 가장 높은 행에 놓으려고 합니다. 여러 선택지가 있다면, 색상 우선순위를 사용합니다.",
+        "influenceTwo": "전달 후, 전달한 길드에서 <b>정확히 영향력 2개</b>를 얻습니다 (전달한 행과 무관하게).",
+        "influenceDependingOnRow": "전달 후, 전달한 길드에서 <b>영향력 1개 또는 2개</b>를 얻습니다 (전달한 행에 따라)."
+      },
+      "translatorEmploy": {
+        "title": "번역가 고용",
+        "chooseTranslator": "모든 방에서 (소유권 관계없이) 중복을 피하면서 번역가 우선순위를 사용하여 번역가를 고용합니다. 6명의 번역가가 모두 이미 고용되었다면, 중복임에도 원래 우선순위를 사용하여 고용합니다.",
+        "chooseRoom": "방 비용 우선순위에 따라 가장 오른쪽 사용 가능한 방에 번역가를 배치합니다.",
+        "neutralTranslators": "상대방이 모든 중립 번역가를 소유하므로, 영향력을 놓을 필요가 없습니다. 방의 모든 비용과 즉시 효과를 무시합니다."
+      },
+      "translatorPlaceGold": {
+        "title": "번역가에게 금화 놓기",
+        "instruction": "AI가 가장 왼쪽 중립 번역가에게 금화 1개를 놓습니다."
+      },
+      "translatorRetire": {
+        "title": "번역가 은퇴",
+        "instruction": "AI가 메인 보드 상단에서 그림의 번역가를 은퇴시킵니다.",
+        "highestVP": "AI가 메인 보드 상단에서 가장 높은 승점을 가진 번역가를 은퇴시킵니다. 동점이면 가장 높은 승점을 가진 가장 왼쪽 번역가를 선택합니다."
+      },
+      "influence": {
+        "title": "영향력"
+      },
+      "silver": {
+        "title": "은화"
+      },
+      "restBottomCard": {
+        "title": "맨 아래 카드 뽑기",
+        "instruction": "두루마리 카드 뽑기 더미의 맨 아래 카드를 공개하고 휴식할 때와 동일하게 처리합니다."
+      }
+    },
+    "caliphCard": {
+      "title": "칼리프 카드",
+      "guildControl": "상대방이 길드를 지배하고 칼리프 카드에서 선택지를 고를 때, 선택된 옵션을 확인하세요 (빨간 숫자가 선호도를 나타냅니다):",
+      "consolation": "상대방이 위로 보상을 받는지 확인하세요:",
+      "apply": "적용",
+      "remove": "제거"
+    }
+  },
+  "notfound": {
+    "title": "찾을 수 없음"
+  },
+  "action": {
+    "playGame": "게임 플레이",
+    "startGame": "게임 시작",
+    "next": "다음",
+    "nextRound": "다음 라운드",
+    "abortGame": "게임 중단",
+    "abortGameConfirm": "진행 중인 게임을 중단하시겠습니까?",
+    "endGame": "게임 종료",
+    "endGameConfirm": "이 게임을 종료하고 홈 화면으로 돌아가시겠습니까?",
+    "endGameGoToScoringConfirm": "이 게임을 종료하고 점수 화면으로 가시겠습니까?",
+    "cancel": "취소",
+    "backToHome": "홈으로 돌아가기",
+    "back": "뒤로",
+    "close": "닫기",
+    "ok": "확인"
+  },
+  "footer": {
+    "credits": "크레딧"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "앱 새로고침",
+    "notice": "앱이 업데이트되었습니다 - 최신 버전을 사용하기 위해 새로고침하시겠습니까?"
+  }
+}
